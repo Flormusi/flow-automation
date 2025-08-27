@@ -21,30 +21,42 @@ async function parseBody(req: Request): Promise<ContactBody> {
 }
 
 export async function POST(req: Request) {
-  const data = await parseBody(req)
+  try {
+    const data = await parseBody(req)
 
-  if (!data.name || !data.email || !data.message) {
-    console.warn("[CONTACT] missing_fields", JSON.stringify(data))
-    return new Response(JSON.stringify({ ok: false, error: "Faltan campos requeridos." }), {
-      status: 400,
+    if (!data.name || !data.email || !data.message) {
+      console.warn("[CONTACT] missing_fields", JSON.stringify(data))
+      return new Response(JSON.stringify({ ok: false, error: "Faltan campos requeridos." }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+
+    // 👇 este log debería verse sí o sí en Runtime Logs (Serverless)
+    console.log(
+      "[CONTACT] received",
+      JSON.stringify({
+        name: data.name,
+        email: data.email,
+        len: data.message.length,
+      }),
+    )
+
+    console.log(
+      `[CONTACT BACKEND] Nuevo mensaje → Nombre: ${data.name}, Email: ${data.email}, Mensaje: ${data.message}`,
+    )
+
+    return new Response(JSON.stringify({ ok: true, echo: data, at: new Date().toISOString() }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    })
+  } catch (error) {
+    console.error(`[CONTACT BACKEND] error:`, error)
+    return new Response(JSON.stringify({ ok: false, error: "Error interno del servidor." }), {
+      status: 500,
       headers: { "Content-Type": "application/json" },
     })
   }
-
-  // 👇 este log debería verse sí o sí en Runtime Logs (Serverless)
-  console.log(
-    "[CONTACT] received",
-    JSON.stringify({
-      name: data.name,
-      email: data.email,
-      len: data.message.length,
-    }),
-  )
-
-  return new Response(JSON.stringify({ ok: true, echo: data, at: new Date().toISOString() }), {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-  })
 }
 
 // (opcional) GET temporal para testear fácil desde el navegador
