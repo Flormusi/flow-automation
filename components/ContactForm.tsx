@@ -34,7 +34,9 @@ export default function ContactForm() {
 
       if (res.ok) {
         setStatus("success")
-        e.currentTarget.reset()
+        if (e.currentTarget) {
+          e.currentTarget.reset()
+        }
       } else {
         setStatus("error")
       }
