@@ -53,3 +53,11 @@ export async function POST(req: Request) {
     })
   }
 }
+
+export async function GET() {
+  console.log("[CONTACT] GET ping")
+  return new Response(JSON.stringify({ ok: true, method: "GET" }), {
+    status: 200,
+    headers: { "Content-Type": "application/json" },
+  })
+}
