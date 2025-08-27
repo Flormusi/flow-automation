@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Bot, BarChart3, Star, Menu, Workflow, Sparkles, Users, Monitor } from "lucide-react"
 import Link from "next/link"
+import ContactForm from "@/components/ContactForm"
 
 const FlowerLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
   <div className={`${className} relative`}>
@@ -502,6 +503,35 @@ export default function FlowAutomationLanding() {
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg">
                   Solicitar cotización
                 </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
+              ¿Tienes Preguntas? Contáctanos
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Nuestro equipo está aquí para ayudarte a automatizar tu negocio. Escríbenos y te responderemos en menos de
+              24 horas.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <Card className="border-border shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl text-center">Envíanos un Mensaje</CardTitle>
+                <CardDescription className="text-center">
+                  Cuéntanos sobre tu negocio y cómo podemos ayudarte a automatizar tus procesos.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ContactForm />
               </CardContent>
             </Card>
           </div>
