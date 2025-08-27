@@ -9,39 +9,30 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus("loading")
 
-    const fd = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const fd = new FormData(form)
 
-    const payload = {
-      name: String(fd.get("user_name") || "").trim(),
-      email: String(fd.get("user_email") || "").trim(),
-      message: String(fd.get("user_message") || "").trim(),
-    }
-
-    console.log("[v0] ContactForm payload:", payload)
+    const name = String(fd.get("name") ?? "")
+    const email = String(fd.get("email") ?? "")
+    const message = String(fd.get("message") ?? "")
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://flow-automation.vercel.app/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
       })
+      const data = await res.json()
+      console.log("[CONTACT FORM RESPONSE]", data)
 
-      console.log("[v0] ContactForm response status:", res.status)
-      const responseData = await res.json()
-      console.log("[v0] ContactForm response data:", responseData)
-
-      if (res.ok) {
+      if (data.ok) {
         setStatus("success")
-        if (e.currentTarget) {
-          e.currentTarget.reset()
-        }
+        form.reset()
       } else {
         setStatus("error")
       }
     } catch (err) {
-      console.log("[v0] ContactForm error:", err)
+      console.error("[CONTACT FORM ERROR]", err)
       setStatus("error")
     }
   }
@@ -49,12 +40,12 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
       <div>
-        <label htmlFor="user_name" className="block text-sm font-medium">
+        <label htmlFor="name" className="block text-sm font-medium">
           Nombre
         </label>
         <input
-          id="user_name"
-          name="user_name"
+          id="name"
+          name="name"
           type="text"
           required
           autoComplete="off"
@@ -63,12 +54,12 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="user_email" className="block text-sm font-medium">
+        <label htmlFor="email" className="block text-sm font-medium">
           Email
         </label>
         <input
-          id="user_email"
-          name="user_email"
+          id="email"
+          name="email"
           type="email"
           required
           autoComplete="off"
@@ -77,12 +68,12 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="user_message" className="block text-sm font-medium">
+        <label htmlFor="message" className="block text-sm font-medium">
           Mensaje
         </label>
         <textarea
-          id="user_message"
-          name="user_message"
+          id="message"
+          name="message"
           rows={4}
           required
           autoComplete="off"
