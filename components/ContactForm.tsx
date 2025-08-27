@@ -2,8 +2,6 @@
 import { useState } from "react"
 import type React from "react"
 
-import { Button } from "@/components/ui/button"
-
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
   const [error, setError] = useState<string | null>(null)
@@ -14,19 +12,20 @@ export default function ContactForm() {
     setError(null)
 
     const form = e.currentTarget
-    const formData = new FormData(form)
+    const fd = new FormData(form)
 
-    // Honeypot anti-spam (campo oculto en el form)
-    if (formData.get("company")) {
+    // ✅ Honeypot robusto (no lo autocompleta el navegador)
+    const hp = String(fd.get("hp") || "")
+    if (hp.trim() !== "") {
       setStatus("ok")
       form.reset()
-      return
+      return // corta silencioso: spam bot/autofill indebido
     }
 
     const payload = {
-      name: String(formData.get("name") || ""),
-      email: String(formData.get("email") || ""),
-      message: String(formData.get("message") || ""),
+      name: String(fd.get("name") || "").trim(),
+      email: String(fd.get("email") || "").trim(),
+      message: String(fd.get("message") || "").trim(),
     }
 
     try {
@@ -47,45 +46,52 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="max-w-xl space-y-4">
-      <div className="hidden">
-        {/* Honeypot (dejar vacío) */}
-        <input name="company" autoComplete="off" />
+      {/* Honeypot oculto, fuera del viewport, sin autofill */}
+      <div
+        style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}
+        aria-hidden="true"
+      >
+        <label htmlFor="hp">Dejar en blanco</label>
+        <input id="hp" name="hp" type="text" autoComplete="new-password" tabIndex={-1} defaultValue="" />
       </div>
+
       <div>
-        <label className="block text-sm font-medium">Nombre</label>
-        <input name="name" className="mt-1 w-full rounded-md border p-2" placeholder="Tu nombre completo" required />
+        <label className="block text-sm font-medium" htmlFor="name">
+          Nombre
+        </label>
+        <input id="name" name="name" required autoComplete="name" className="mt-1 w-full rounded-md border p-2" />
       </div>
+
       <div>
-        <label className="block text-sm font-medium">Email</label>
+        <label className="block text-sm font-medium" htmlFor="email">
+          Email
+        </label>
         <input
-          type="email"
+          id="email"
           name="email"
-          className="mt-1 w-full rounded-md border p-2"
-          placeholder="tu@email.com"
+          type="email"
           required
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium">Mensaje</label>
-        <textarea
-          name="message"
-          rows={4}
+          autoComplete="email"
           className="mt-1 w-full rounded-md border p-2"
-          placeholder="Cuéntanos sobre tu negocio y cómo podemos ayudarte..."
-          required
         />
       </div>
 
-      <Button
+      <div>
+        <label className="block text-sm font-medium" htmlFor="message">
+          Mensaje
+        </label>
+        <textarea id="message" name="message" rows={4} required className="mt-1 w-full rounded-md border p-2" />
+      </div>
+
+      <button
         type="submit"
         disabled={status === "sending"}
         className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
-        size="lg"
       >
         {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
-      </Button>
+      </button>
 
-      {status === "ok" && <p className="text-green-600">¡Gracias! Recibimos tu mensaje.</p>}
+      {status === "ok" && <p className="text-green-600">¡Gracias! Recibimos tu mensaje y te responderemos pronto.</p>}
       {status === "error" && <p className="text-red-600">Hubo un problema: {error}</p>}
     </form>
   )
