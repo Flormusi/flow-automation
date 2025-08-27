@@ -17,6 +17,8 @@ export default function ContactForm() {
       message: String(fd.get("user_message") || "").trim(),
     }
 
+    console.log("[v0] ContactForm payload:", payload)
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -26,6 +28,10 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       })
 
+      console.log("[v0] ContactForm response status:", res.status)
+      const responseData = await res.json()
+      console.log("[v0] ContactForm response data:", responseData)
+
       if (res.ok) {
         setStatus("success")
         e.currentTarget.reset()
@@ -33,6 +39,7 @@ export default function ContactForm() {
         setStatus("error")
       }
     } catch (err) {
+      console.log("[v0] ContactForm error:", err)
       setStatus("error")
     }
   }
