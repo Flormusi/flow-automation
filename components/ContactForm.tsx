@@ -3,96 +3,96 @@ import { useState } from "react"
 import type React from "react"
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle")
-  const [error, setError] = useState<string | null>(null)
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setStatus("sending")
-    setError(null)
+    setStatus("loading")
 
-    const form = e.currentTarget
-    const fd = new FormData(form)
-
-    // ✅ Honeypot robusto (no lo autocompleta el navegador)
-    const hp = String(fd.get("hp") || "")
-    if (hp.trim() !== "") {
-      setStatus("ok")
-      form.reset()
-      return // corta silencioso: spam bot/autofill indebido
-    }
+    const fd = new FormData(e.currentTarget)
 
     const payload = {
-      name: String(fd.get("name") || "").trim(),
-      email: String(fd.get("email") || "").trim(),
-      message: String(fd.get("message") || "").trim(),
+      name: String(fd.get("user_name") || "").trim(),
+      email: String(fd.get("user_email") || "").trim(),
+      message: String(fd.get("user_message") || "").trim(),
     }
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(payload),
       })
-      const json = await res.json()
-      if (!res.ok || !json.ok) throw new Error(json.error || "Error")
-      setStatus("ok")
-      form.reset()
-    } catch (err: any) {
+
+      if (res.ok) {
+        setStatus("success")
+        e.currentTarget.reset()
+      } else {
+        setStatus("error")
+      }
+    } catch (err) {
       setStatus("error")
-      setError(err?.message ?? "Error desconocido")
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="max-w-xl space-y-4">
-      {/* Honeypot oculto, fuera del viewport, sin autofill */}
-      <div
-        style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}
-        aria-hidden="true"
-      >
-        <label htmlFor="hp">Dejar en blanco</label>
-        <input id="hp" name="hp" type="text" autoComplete="new-password" tabIndex={-1} defaultValue="" />
-      </div>
-
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
       <div>
-        <label className="block text-sm font-medium" htmlFor="name">
+        <label htmlFor="user_name" className="block text-sm font-medium">
           Nombre
         </label>
-        <input id="name" name="name" required autoComplete="name" className="mt-1 w-full rounded-md border p-2" />
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium" htmlFor="email">
-          Email
-        </label>
         <input
-          id="email"
-          name="email"
-          type="email"
+          id="user_name"
+          name="user_name"
+          type="text"
           required
-          autoComplete="email"
-          className="mt-1 w-full rounded-md border p-2"
+          autoComplete="off"
+          className="w-full rounded-md border px-3 py-2"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium" htmlFor="message">
+        <label htmlFor="user_email" className="block text-sm font-medium">
+          Email
+        </label>
+        <input
+          id="user_email"
+          name="user_email"
+          type="email"
+          required
+          autoComplete="off"
+          className="w-full rounded-md border px-3 py-2"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="user_message" className="block text-sm font-medium">
           Mensaje
         </label>
-        <textarea id="message" name="message" rows={4} required className="mt-1 w-full rounded-md border p-2" />
+        <textarea
+          id="user_message"
+          name="user_message"
+          rows={4}
+          required
+          autoComplete="off"
+          className="w-full rounded-md border px-3 py-2"
+        />
       </div>
 
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
+        disabled={status === "loading"}
+        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
       >
-        {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
+        {status === "loading" ? "Enviando..." : "Enviar Mensaje"}
       </button>
 
-      {status === "ok" && <p className="text-green-600">¡Gracias! Recibimos tu mensaje y te responderemos pronto.</p>}
-      {status === "error" && <p className="text-red-600">Hubo un problema: {error}</p>}
+      {status === "success" && (
+        <p className="text-green-600 text-sm mt-2">¡Gracias! Recibimos tu mensaje y te responderemos pronto.</p>
+      )}
+      {status === "error" && <p className="text-red-600 text-sm mt-2">Ocurrió un error. Intenta nuevamente.</p>}
     </form>
   )
 }
