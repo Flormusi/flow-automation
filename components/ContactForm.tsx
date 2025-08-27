@@ -15,10 +15,18 @@ export default function ContactForm() {
 
     const form = e.currentTarget
     const formData = new FormData(form)
+
+    // Honeypot anti-spam (campo oculto en el form)
+    if (formData.get("company")) {
+      setStatus("ok")
+      form.reset()
+      return
+    }
+
     const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || ""),
+      message: String(formData.get("message") || ""),
     }
 
     try {
@@ -38,32 +46,31 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <div>
-        <label className="block text-sm font-medium text-foreground mb-2">Nombre</label>
-        <input
-          name="name"
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-          placeholder="Tu nombre completo"
-          required
-        />
+    <form onSubmit={onSubmit} className="max-w-xl space-y-4">
+      <div className="hidden">
+        {/* Honeypot (dejar vacío) */}
+        <input name="company" autoComplete="off" />
       </div>
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+        <label className="block text-sm font-medium">Nombre</label>
+        <input name="name" className="mt-1 w-full rounded-md border p-2" placeholder="Tu nombre completo" required />
+      </div>
+      <div>
+        <label className="block text-sm font-medium">Email</label>
         <input
           type="email"
           name="email"
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          className="mt-1 w-full rounded-md border p-2"
           placeholder="tu@email.com"
           required
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-foreground mb-2">Mensaje</label>
+        <label className="block text-sm font-medium">Mensaje</label>
         <textarea
           name="message"
           rows={4}
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+          className="mt-1 w-full rounded-md border p-2"
           placeholder="Cuéntanos sobre tu negocio y cómo podemos ayudarte..."
           required
         />
@@ -72,18 +79,14 @@ export default function ContactForm() {
       <Button
         type="submit"
         disabled={status === "sending"}
-        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-60"
+        className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
         size="lg"
       >
         {status === "sending" ? "Enviando..." : "Enviar Mensaje"}
       </Button>
 
-      {status === "ok" && (
-        <p className="text-secondary text-center font-medium">
-          ¡Gracias! Recibimos tu mensaje y te responderemos pronto.
-        </p>
-      )}
-      {status === "error" && <p className="text-red-600 text-center">Hubo un problema: {error}</p>}
+      {status === "ok" && <p className="text-green-600">¡Gracias! Recibimos tu mensaje.</p>}
+      {status === "error" && <p className="text-red-600">Hubo un problema: {error}</p>}
     </form>
   )
 }
