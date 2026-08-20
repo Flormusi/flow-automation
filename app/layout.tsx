@@ -3,7 +3,7 @@ import { GeistSans } from "geist/font/sans"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://flow-automation.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowautomation.com.ar"),
   title: {
     default: "Flow Automation Studio | Sistemas simples para negocios",
     template: "%s | Flow Automation Studio",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   keywords: ["automatización de negocios", "sistemas a medida", "mejora de procesos", "Flow Automation Studio"],
   authors: [{ name: "Flow Automation Studio" }],
   creator: "Flow Automation Studio",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "es_AR",
