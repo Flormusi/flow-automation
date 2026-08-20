@@ -3,7 +3,7 @@ import { GeistSans } from "geist/font/sans"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://flow-automation.vercel.app"),
   title: {
     default: "Flow Automation Studio | Sistemas simples para negocios",
     template: "%s | Flow Automation Studio",
