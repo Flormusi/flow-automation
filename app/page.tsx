@@ -1,691 +1,209 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Bot, BarChart3, Star, Menu, Workflow, Sparkles, Users, Monitor } from "lucide-react"
-import Link from "next/link"
-import ContactForm from "@/components/ContactForm"
+import {
+  ArrowRight,
+  Check,
+  ChevronRight,
+  Clock3,
+  MessagesSquare,
+  RefreshCw,
+  Search,
+  WalletCards,
+} from "lucide-react"
 
-const FlowerLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <div className={`${className} relative`}>
-    <svg viewBox="0 0 32 32" className="w-full h-full">
-      {/* Center node */}
-      <circle cx="16" cy="16" r="3" className="fill-primary" />
+const whatsappUrl =
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20negocio."
 
-      {/* Petal nodes arranged in flower pattern */}
-      <circle cx="16" cy="8" r="2.5" className="fill-secondary opacity-80" />
-      <circle cx="24" cy="16" r="2.5" className="fill-accent opacity-80" />
-      <circle cx="16" cy="24" r="2.5" className="fill-secondary opacity-80" />
-      <circle cx="8" cy="16" r="2.5" className="fill-accent opacity-80" />
-      <circle cx="22" cy="10" r="2" className="fill-primary opacity-60" />
-      <circle cx="22" cy="22" r="2" className="fill-primary opacity-60" />
-      <circle cx="10" cy="22" r="2" className="fill-secondary opacity-60" />
-      <circle cx="10" cy="10" r="2" className="fill-secondary opacity-60" />
+const pains = [
+  { number: "01", title: "Todo termina pasando por vos", text: "Consultas, decisiones, seguimiento y tareas chicas que te sacan foco de lo importante.", icon: Clock3 },
+  { number: "02", title: "La información vive en demasiados lugares", text: "WhatsApp, planillas, notas y aplicaciones que están desconectadas.", icon: RefreshCw },
+  { number: "03", title: "Se pierden oportunidades en el camino", text: "Mensajes sin respuesta, seguimientos tardíos, cobros demorados y clientes que se enfrían.", icon: WalletCards },
+]
 
-      {/* Connection lines */}
-      <line x1="16" y1="16" x2="16" y2="8" className="stroke-primary stroke-1 opacity-40" />
-      <line x1="16" y1="16" x2="24" y2="16" className="stroke-secondary stroke-1 opacity-40" />
-      <line x1="16" y1="16" x2="16" y2="24" className="stroke-primary stroke-1 opacity-40" />
-      <line x1="16" y1="16" x2="8" y2="16" className="stroke-secondary stroke-1 opacity-40" />
-      <line x1="16" y1="16" x2="22" y2="10" className="stroke-accent stroke-1 opacity-30" />
-      <line x1="16" y1="16" x2="22" y2="22" className="stroke-accent stroke-1 opacity-30" />
-      <line x1="16" y1="16" x2="10" y2="22" className="stroke-primary stroke-1 opacity-30" />
-      <line x1="16" y1="16" x2="10" y2="10" className="stroke-primary stroke-1 opacity-30" />
-    </svg>
-  </div>
-)
+const examples = [
+  "Responder y ordenar consultas entrantes",
+  "Hacer seguimiento sin depender de la memoria",
+  "Recordar turnos, pagos y renovaciones",
+  "Mantener actualizada la información en las aplicaciones que ya usás",
+  "Recibir alertas cuando algo necesita atención",
+  "Armar reportes sin copiar datos a mano",
+]
 
-export default function FlowAutomationLanding() {
+const process = [
+  { step: "01", title: "Te escuchamos", text: "Nos contás cómo trabajás, qué querés mejorar y qué tareas te están complicando." },
+  { step: "02", title: "Elegimos por dónde empezar", text: "Buscamos el problema que más tiempo, dinero o clientes te está costando." },
+  { step: "03", title: "Te mostramos la solución", text: "Te explicamos qué haríamos, cuánto tardaría y cuánto costaría. Sin sorpresas." },
+  { step: "04", title: "La ponemos a funcionar", text: "Nos ocupamos de crearla, probarla y enseñarte a usarla." },
+]
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="flex items-center space-x-2">
-                  <FlowerLogo />
-                  <span className="text-xl font-bold text-foreground">Flow Automation</span>
-                </div>
-              </div>
-            </div>
-
-            <nav className="hidden md:block">
-              <div className="ml-16 flex items-baseline space-x-8">
-                <Link
-                  href="#features"
-                  className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  Características
-                </Link>
-                <Link
-                  href="#pricing"
-                  className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  Precios
-                </Link>
-                <Link
-                  href="#testimonials"
-                  className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  Testimonios
-                </Link>
-                <Link
-                  href="#contact"
-                  className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  Contacto
-                </Link>
-              </div>
-            </nav>
-
-            <div className="hidden md:block">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Comenzar Gratis</Button>
-            </div>
-
-            <div className="md:hidden">
-              <Button variant="ghost" size="sm">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </div>
-          </div>
-        </div>
+    <main>
+      <header className="site-header">
+        <a className="brand" href="#inicio" aria-label="Flow Automation Studio, inicio">
+          <img className="brand-mark" src="/flow-automation-mark.svg" alt="" width="38" height="38" />
+          <span><strong>Flow Automation</strong><small>Studio</small></span>
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="#problemas">El problema</a>
+          <a href="#metodo">Cómo trabajamos</a>
+          <a href="#servicio">El servicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+        </nav>
+        <a className="button button-small" href={whatsappUrl} target="_blank" rel="noreferrer">Hablemos <ArrowRight size={16} /></a>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 bg-gradient-to-br from-background via-amber-50/30 to-orange-50/30 dark:from-background dark:via-amber-950/20 dark:to-orange-950/20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-              Automatiza tu Negocio con
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                {" "}
-                Inteligencia Artificial
-              </span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty">
-              Flow Automation ayuda a pequeños negocios y emprendedores a automatizar tareas repetitivas con IA,
-              ahorrando hasta 20 horas semanales para enfocarse en hacer crecer su negocio.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg">
-                Prueba Gratuita 14 Días
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-3 text-lg bg-transparent border-secondary/30 hover:bg-secondary/10 text-secondary hover:text-secondary"
-              >
-                Ver Demo
-              </Button>
-            </div>
-            <div className="mt-6 max-w-3xl mx-auto">
-              <p className="text-sm text-muted-foreground mb-3">
-                Sin tarjeta de crédito • Prueba gratuita 14 días • Cancela cuando quieras
-              </p>
-              <div className="bg-card/50 border border-border/50 rounded-lg p-4 text-left">
-                <h3 className="font-semibold text-foreground mb-2 text-center">✨ Tu prueba gratuita incluye:</h3>
-                <div className="grid sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>25 automatizaciones/mes</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>Integraciones esenciales</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>Plantillas predefinidas</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>Soporte por chat</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>Tutorial interactivo</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2 flex-shrink-0" />
-                    <span>Configuración guiada</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="hero" id="inicio">
+        <div className="hero-copy">
+          <p className="eyebrow">Menos tareas manuales. Más tiempo para tu negocio.</p>
+          <h1>Tu negocio no necesita otra herramienta.<span> Necesita funcionar mejor.</span></h1>
+          <p className="hero-text">Vemos dónde perdés tiempo, dinero o clientes. Después creamos una solución simple para resolverlo.</p>
+          <div className="hero-actions">
+            <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Quiero ordenar mi negocio <ArrowRight size={18} /></a>
+            <a className="text-link" href="#metodo">Ver cómo trabajamos <ChevronRight size={17} /></a>
           </div>
+          <p className="microcopy">Primera conversación de 20 minutos · Sin costo · Sin propuesta genérica</p>
+        </div>
+
+        <div className="hero-system" aria-label="Ejemplo de un problema de negocio">
+          <div className="system-topline"><span>Así vemos el problema</span><span className="status"><span /> en revisión</span></div>
+          <div className="system-question">
+            <Search size={20} />
+            <div><small>La pregunta correcta</small><strong>¿Qué está frenando hoy al negocio?</strong></div>
+          </div>
+          <div className="system-flow">
+            <div><span>01</span><p>Consultas llegan por WhatsApp</p></div><i />
+            <div><span>02</span><p>Seguimiento manual e irregular</p></div><i />
+            <div className="system-alert"><span>03</span><p>Ventas que se enfrían</p></div>
+          </div>
+          <div className="system-note"><span>Mejora encontrada</span><p>Ordenar las consultas y recordar cuándo volver a contactar a cada persona.</p></div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-              Todo lo que Necesitas para Automatizar con IA
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Herramientas inteligentes diseñadas específicamente para pequeños negocios y emprendedores.
-            </p>
-          </div>
+      <section className="manifesto"><p>No empezamos por la IA. <strong>Empezamos por entender el negocio.</strong></p></section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-border hover:border-primary/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4">
-                  <Bot className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Automatización con IA</CardTitle>
-                <CardDescription>
-                  Automatiza tareas repetitivas como respuestas de email, seguimiento de clientes y gestión de
-                  inventario con inteligencia artificial.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-border hover:border-secondary/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-lg flex items-center justify-center mb-4">
-                  <Workflow className="w-6 h-6 text-secondary" />
-                </div>
-                <CardTitle className="text-xl">Flujos Inteligentes</CardTitle>
-                <CardDescription>
-                  Crea flujos de trabajo personalizados que se adaptan a tu negocio: desde captura de leads hasta
-                  facturación automática.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-border hover:border-accent/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-lg flex items-center justify-center mb-4">
-                  <BarChart3 className="w-6 h-6 text-accent" />
-                </div>
-                <CardTitle className="text-xl">Insights Inteligentes</CardTitle>
-                <CardDescription>
-                  Obtén reportes automáticos sobre el rendimiento de tu negocio y recomendaciones de IA para optimizar
-                  procesos.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-border hover:border-primary/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center mb-4">
-                  <Sparkles className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Configuración Fácil</CardTitle>
-                <CardDescription>
-                  Sin código ni conocimientos técnicos. Configura automatizaciones en minutos con nuestro asistente de
-                  IA.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-border hover:border-secondary/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-lg flex items-center justify-center mb-4">
-                  <CheckCircle className="w-6 h-6 text-secondary" />
-                </div>
-                <CardTitle className="text-xl">Integraciones Populares</CardTitle>
-                <CardDescription>
-                  Conecta con WhatsApp, Gmail, Google Sheets, Shopify, y más de 100 herramientas que ya usas en tu
-                  negocio.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-border hover:border-accent/30 transition-colors hover:shadow-lg">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-primary/20 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-accent" />
-                </div>
-                <CardTitle className="text-xl">Soporte en Español</CardTitle>
-                <CardDescription>
-                  Equipo de soporte dedicado que entiende las necesidades de pequeños negocios en Latinoamérica.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+      <section className="section" id="problemas">
+        <div className="section-heading split-heading">
+          <div><p className="eyebrow">Cuando crecer empieza a pesar</p><h2>El problema rara vez es la falta de esfuerzo.</h2></div>
+          <p>Muchas veces el negocio crece, pero la forma de trabajar queda igual. Entonces aparecen más tareas, más desorden y menos tiempo para avanzar.</p>
+        </div>
+        <div className="pain-grid">
+          {pains.map(({ number, title, text, icon: Icon }) => (
+            <article className="pain-card" key={number}>
+              <div className="card-meta"><span>{number}</span><Icon size={22} /></div>
+              <h3>{title}</h3><p>{text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section
-        id="testimonials"
-        className="py-20 bg-gradient-to-br from-amber-50/30 to-orange-50/30 dark:from-amber-950/10 dark:to-orange-950/10"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-              Más de 5,000 Pequeños Negocios Confían en Nosotros
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Descubre cómo Flow Automation está transformando negocios en toda Latinoamérica.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-card-foreground mb-4 text-pretty">
-                  "Flow Automation me ayudó a automatizar el seguimiento de clientes. Ahora tengo 15 horas extra a la
-                  semana para enfocarme en ventas."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-primary font-semibold">MR</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-card-foreground">María Rodríguez</p>
-                    <p className="text-sm text-muted-foreground">Fundadora, Boutique Luna</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-card-foreground mb-4 text-pretty">
-                  "La automatización de facturas me ahorra 10 horas al mes. El ROI fue inmediato y el soporte es
-                  excelente."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-secondary font-semibold">CG</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-card-foreground">Carlos Gutiérrez</p>
-                    <p className="text-sm text-muted-foreground">CEO, Servicios TechMéxico</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-card-foreground mb-4 text-pretty">
-                  "Implementar Flow Automation fue súper fácil. En una semana ya tenía automatizado todo mi proceso de
-                  ventas por WhatsApp."
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-accent font-semibold">AS</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-card-foreground">Ana Silva</p>
-                    <p className="text-sm text-muted-foreground">Emprendedora, Repostería Dulce Ana</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+      <section className="section method-section" id="metodo">
+        <div className="section-heading centered-heading">
+          <p className="eyebrow">Cómo trabajamos</p><h2>Primero entendemos qué pasa. Después vemos cómo resolverlo.</h2>
+          <p>No usamos tecnología porque sí. Cada cambio tiene que hacerte el trabajo más fácil.</p>
+        </div>
+        <div className="process-list">
+          {process.map((item) => <article key={item.step}><span>{item.step}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-              Precios Transparentes para Cada Etapa
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Planes diseñados para crecer contigo. Cambia de plan cuando lo necesites.
-            </p>
+      <section className="section service-section" id="servicio">
+        <div className="section-heading service-heading">
+          <div>
+            <p className="eyebrow">Una forma simple de empezar</p>
+            <h2>Del problema a una solución que funciona.</h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="border-border hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl">Emprendedor</CardTitle>
-                <CardDescription>Perfecto para comenzar tu automatización</CardDescription>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-foreground">$19</span>
-                  <span className="text-muted-foreground">/mes USD</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Hasta 100 automatizaciones/mes</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Integraciones esenciales incluidas</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Soporte por email</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Plantillas prediseñadas</span>
-                  </li>
-                </ul>
-                <Button
-                  className="w-full mt-6 bg-transparent border-secondary/30 hover:bg-secondary/10 text-secondary"
-                  variant="outline"
-                >
-                  Comenzar Gratis
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/20 dark:to-orange-950/20 relative hover:shadow-xl transition-shadow">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <Badge className="bg-primary text-primary-foreground">Más Popular</Badge>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl">Profesional</CardTitle>
-                <CardDescription>Ideal para negocios en crecimiento</CardDescription>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-foreground">$49</span>
-                  <span className="text-muted-foreground">/mes USD</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Hasta 500 automatizaciones/mes</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Integraciones ilimitadas</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Soporte prioritario</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">IA avanzada</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Reportes detallados</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Comenzar Gratis
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl">Empresa</CardTitle>
-                <CardDescription>Para equipos y múltiples ubicaciones</CardDescription>
-                <div className="mt-4">
-                  <span className="text-3xl font-bold text-foreground">$149</span>
-                  <span className="text-muted-foreground">/mes USD</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Automatizaciones ilimitadas</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Múltiples usuarios</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">SLA garantizado</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Gestor de cuenta dedicado</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Integraciones personalizadas</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-secondary mr-2" />
-                    <span className="text-sm">Onboarding personalizado</span>
-                  </li>
-                </ul>
-                <Button
-                  className="w-full mt-6 bg-transparent border-primary/30 hover:bg-primary/10 text-primary hover:text-primary"
-                  variant="outline"
-                >
-                  Agendar Demo
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Services Section */}
-      <section className="py-20 bg-[#F5F7FA] dark:bg-gray-900/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">Servicios Adicionales</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Además de automatizar tus procesos con IA, te ayudamos a potenciar tu presencia digital.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="border-border hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-white to-amber-50/30 dark:from-gray-800 dark:to-amber-950/20">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Monitor className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-2xl mb-2">Creación y mejora de sitios web</CardTitle>
-                <CardDescription className="text-lg">
-                  Diseñamos o actualizamos tu página web para que tu negocio tenga una imagen profesional y conectada
-                  con tus automatizaciones.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg">
-                  Solicitar cotización
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-              ¿Tienes Preguntas? Contáctanos
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Nuestro equipo está aquí para ayudarte a automatizar tu negocio. Escríbenos y te responderemos en menos de
-              24 horas.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="border-border shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl text-center">Envíanos un Mensaje</CardTitle>
-                <CardDescription className="text-center">
-                  Cuéntanos sobre tu negocio y cómo podemos ayudarte a automatizar tus procesos.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ContactForm />
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-balance">¿Listo para Automatizar tu Negocio?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-pretty opacity-90">
-            Únete a miles de emprendedores que ya transformaron sus negocios con Flow Automation. Comienza tu prueba
-            gratuita hoy.
+          <p>
+            No necesitás saber qué herramienta usar. Nos contás qué está pasando y vemos juntos si hay una forma clara
+            de mejorarlo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="px-8 py-3 text-lg bg-white text-primary hover:bg-gray-100">
-              Prueba Gratuita 14 Días
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-8 py-3 text-lg border-white/20 text-white hover:bg-white/10 bg-transparent"
-            >
-              Agendar Demo
-            </Button>
-          </div>
-          <div className="mt-6 max-w-2xl mx-auto">
-            <p className="text-sm opacity-75 mb-3">
-              Sin tarjeta de crédito • Prueba gratuita 14 días • Cancela cuando quieras
-            </p>
-            <p className="text-sm opacity-90">
-              ✓ 25 automatizaciones incluidas ✓ Configuración guiada ✓ Soporte en español
-            </p>
-          </div>
+        </div>
+        <div className="service-grid">
+          <article>
+            <span className="service-number">01</span>
+            <p className="service-kicker">Primera charla</p>
+            <h3>Nos contás qué está pasando</h3>
+            <p>Hablamos durante 20 minutos para conocer tu negocio y ver si podemos ayudarte.</p>
+            <strong>Sin costo y sin compromiso</strong>
+          </article>
+          <article className="service-featured">
+            <span className="service-number">02</span>
+            <p className="service-kicker">Plan de trabajo</p>
+            <h3>Te mostramos qué conviene hacer</h3>
+            <p>Te explicamos qué problema resolveríamos primero, cómo lo haríamos, cuánto tardaría y cuánto costaría.</p>
+            <strong>Vos decidís si querés avanzar</strong>
+          </article>
+          <article>
+            <span className="service-number">03</span>
+            <p className="service-kicker">Puesta en marcha</p>
+            <h3>Nos ocupamos de hacerlo realidad</h3>
+            <p>Creamos la solución, la probamos y te mostramos cómo usarla. Después podés elegir si querés que sigamos acompañándote.</p>
+            <strong>Sabés qué hacemos en cada momento</strong>
+          </article>
+        </div>
+        <div className="service-cta">
+          <p>Cada negocio es distinto. El precio depende de lo que haya que resolver.</p>
+          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Contarle mi problema a Flor <ArrowRight size={17} /></a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-1">
-              <div className="flex items-center space-x-2 mb-4">
-                <FlowerLogo className="w-8 h-8" />
-                <span className="text-xl font-bold text-white">Flow Automation</span>
-              </div>
-              <p className="text-sm text-gray-400 mb-4">
-                Automatiza tu negocio con inteligencia artificial y enfócate en lo que realmente importa: hacer crecer
-                tu empresa.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-white mb-3">Producto</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Características
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Integraciones
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Plantillas
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Seguridad
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-white mb-3">Empresa</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Nosotros
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Casos de Éxito
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Contacto
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-white mb-3">Soporte</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Centro de Ayuda
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Documentación
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Tutoriales
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-white transition-colors">
-                    Política de Privacidad
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-sm text-gray-400">© 2024 Flow Automation. Todos los derechos reservados.</p>
-            <div className="flex space-x-4 mt-4 sm:mt-0">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">Twitter</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <span className="sr-only">LinkedIn</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59H3.667v8.59zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
+      <section className="section examples-section" id="ejemplos">
+        <div className="examples-copy">
+          <p className="eyebrow">Algunos ejemplos</p><h2>¿Qué podríamos mejorar?</h2>
+          <p>Podemos ayudarte a ahorrar tareas, ordenar la información y hacer seguimientos a tiempo. La solución depende de tu negocio.</p>
+          <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Contame qué te está pasando <ArrowRight size={17} /></a>
         </div>
+        <div className="examples-list">
+          {examples.map((example) => <div key={example}><Check size={18} /><span>{example}</span></div>)}
+        </div>
+      </section>
+
+      <section className="section fit-section">
+        <div className="fit-intro"><p className="eyebrow">Para quién es</p><h2>Trabajamos mejor con negocios que ya sienten el costo del desorden.</h2></div>
+        <div className="fit-columns">
+          <div><span className="fit-label good">Es para vos si</span><ul><li>Tu equipo repite tareas todos los días.</li><li>Hay ventas o clientes que se pierden por falta de seguimiento.</li><li>Querés ordenar antes de sumar más herramientas o personas.</li></ul></div>
+          <div><span className="fit-label neutral">Probablemente no si</span><ul><li>Solo buscás comprar una herramienta sin revisar cómo trabajás.</li><li>Querés una solución instantánea sin contarnos cómo funciona tu negocio.</li><li>Todavía no hay un problema claro que quieras resolver.</li></ul></div>
+        </div>
+      </section>
+
+      <section className="section founder-section" id="sobre-mi">
+        <div className="founder-photo">
+          <img src="/flor-musitani.png" alt="Flor, fundadora de Flow Automation Studio" width="300" height="300" />
+          <small>Buenos Aires</small>
+        </div>
+        <div className="founder-copy">
+          <p className="eyebrow">Quién está detrás</p>
+          <h2>Hola, soy Flor.</h2>
+          <p className="founder-lead">
+            Creé Flow Automation Studio para resolver problemas reales de los negocios, no para sumar tecnología porque sí.
+          </p>
+          <p>
+            Mi trabajo es entender cómo funciona tu negocio, encontrar qué se puede hacer mejor y crear una solución
+            fácil de usar. Te acompaño desde la primera charla hasta que todo queda funcionando.
+          </p>
+          <div className="founder-tags"><span>Menos tareas manuales</span><span>Más orden</span><span>Mejor seguimiento</span></div>
+          <a className="text-link" href="https://www.linkedin.com/company/flow-automation-studio/" target="_blank" rel="noreferrer">Ver Flow Automation Studio en LinkedIn <ArrowRight size={16} /></a>
+        </div>
+      </section>
+
+      <section className="section faq-section">
+        <div><p className="eyebrow">Preguntas frecuentes</p><h2>Antes de conversar</h2></div>
+        <div className="faq-list">
+          <details><summary>¿Necesito saber qué solución necesito?</summary><p>No. Nos contás el problema y nosotros te ayudamos a encontrar una forma simple de resolverlo.</p></details>
+          <details><summary>¿Trabajan solamente con WhatsApp?</summary><p>No. También podemos ayudarte con consultas, clientes, pagos, tareas, información y reportes.</p></details>
+          <details><summary>¿Cuánto cuesta un proyecto?</summary><p>Depende de lo que haya que resolver. Antes de empezar te decimos qué haríamos, cuánto tardaría y cuánto costaría.</p></details>
+          <details><summary>¿Tengo que cambiar las aplicaciones que ya uso?</summary><p>No necesariamente. Primero vemos si podemos ordenar y aprovechar mejor lo que ya tenés.</p></details>
+        </div>
+      </section>
+
+      <section className="final-cta" id="contacto">
+        <div><p className="eyebrow">Empecemos por lo que hoy te complica</p><h2>¿Qué te gustaría que funcionara mejor?</h2><p>Contanos cómo trabajás y qué tarea te está quitando tiempo. La primera charla dura 20 minutos y no tiene costo.</p></div>
+        <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Conversar con Flor <MessagesSquare size={18} /></a>
+      </section>
+
+      <footer>
+        <a className="brand footer-brand" href="#inicio"><img className="brand-mark" src="/flow-automation-mark.svg" alt="" width="38" height="38" /><span><strong>Flow Automation</strong><small>Studio</small></span></a>
+        <p>Sistemas simples para negocios que quieren funcionar mejor.</p>
+        <div><span>Argentina · Latinoamérica</span><span>© 2026 Flow Automation Studio</span></div>
       </footer>
-    </div>
+    </main>
   )
 }

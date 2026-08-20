@@ -1,30 +1,18 @@
-# SaaS landing page
+# Flow Automation Studio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Sitio web de Flow Automation Studio, un servicio que ayuda a negocios a ahorrar tiempo, ordenar su trabajo y mejorar el seguimiento de clientes.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/florenciamusitani-gmailcoms-projects/v0-saa-s-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/sodiIq9i4gs)
+## Desarrollo local
 
-## Overview
+```bash
+npm install
+npm run dev
+```
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+La página principal vive en `app/page.tsx` y los estilos en `app/globals.css`.
 
-## Deployment
+Al publicar, definir `NEXT_PUBLIC_SITE_URL` con la dirección final del sitio para que las imágenes compartidas usen el dominio correcto.
 
-Your project is live at:
+## Posicionamiento
 
-**[https://vercel.com/florenciamusitani-gmailcoms-projects/v0-saa-s-landing-page](https://vercel.com/florenciamusitani-gmailcoms-projects/v0-saa-s-landing-page)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/sodiIq9i4gs](https://v0.app/chat/projects/sodiIq9i4gs)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+El contexto de producto, audiencia y voz se documenta en `.agents/product-marketing.md`.
