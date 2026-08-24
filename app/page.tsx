@@ -25,6 +25,7 @@ const examples = [
   "Mantener actualizada la información en las aplicaciones que ya usás",
   "Recibir alertas cuando algo necesita atención",
   "Armar reportes sin copiar datos a mano",
+  "Preparar y lanzar campañas publicitarias segmentadas por país",
 ]
 
 const process = [
