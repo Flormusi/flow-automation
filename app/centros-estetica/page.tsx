@@ -14,7 +14,7 @@ const whatsappUrl =
   "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20ver%20c%C3%B3mo%20funcionar%C3%ADa%20el%20seguimiento%20de%20turnos%20y%20consultas%20en%20mi%20centro."
 
 export const metadata: Metadata = {
-  title: "Seguimiento de turnos y consultas | Flow Automation Studio",
+  title: "Seguimiento de turnos y consultas",
   description:
     "Una solución para centros de estética y spas que ayuda a recordar turnos, recuperar ausencias y dar seguimiento a consultas.",
 }
