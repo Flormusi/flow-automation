@@ -150,6 +150,7 @@ export default function Home() {
           <p className="eyebrow">Algunos ejemplos</p><h2>¿Qué podríamos mejorar?</h2>
           <p>Podemos ayudarte a ahorrar tareas, ordenar la información y hacer seguimientos a tiempo. La solución depende de tu negocio.</p>
           <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Contame qué te está pasando <ArrowRight size={17} /></a>
+          <a className="text-link example-solution-link" href="/centros-estetica">Ver ejemplo para centros de estética <ArrowRight size={17} /></a>
         </div>
         <div className="examples-list">
           {examples.map((example) => <div key={example}><Check size={18} /><span>{example}</span></div>)}
