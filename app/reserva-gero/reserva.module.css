@@ -23,6 +23,7 @@
 .includes > span { display: block; margin-bottom: 13px; color: #7f8b97; font-size: 10px; font-weight: 750; text-transform: uppercase; letter-spacing: 1px; }
 .includes p { margin: 9px 0; display: flex; align-items: center; gap: 8px; color: #aab4be; font-size: 12px; }
 .includes svg { padding: 2px; border-radius: 50%; background: #25313d; color: #a8bdd1; }
+.comfortNote { margin-top: 20px; padding: 13px 14px; border: 1px solid #35424e; border-radius: 10px; background: #1b2229; color: #d8e0e7; font-size: 11px; font-weight: 700; line-height: 1.45; }
 .bookingCard { min-height: 590px; padding: 36px; border: 1px solid #2c343d; border-radius: 22px; background: #151a20; box-shadow: 0 24px 60px rgba(0,0,0,.3); }
 .cardHeading > span { color: #91abc4; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; }
 .cardHeading h2, .pending h2 { margin: 8px 0 8px; font-size: 30px; letter-spacing: -1.4px; }

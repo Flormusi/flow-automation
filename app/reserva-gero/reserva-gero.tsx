@@ -74,7 +74,7 @@ export default function ReservaGero() {
           <p className={styles.kicker}>¿Qué onda, contracturad@?</p>
           <h1>Reservá tu sesión</h1>
           <p className={styles.description}>Elegí el horario que mejor te quede. La sesión se adapta a tus molestias y a lo que necesite tu cuerpo.</p>
-          <img className={styles.heroPhoto} src="/geronimo-jorge.jpg" alt="Gerónimo Jorge" />
+          <img className={styles.heroPhoto} src="/consultorio-geronimo.jpg" alt="Espacio de atención de Gerónimo" />
           <div className={styles.facts}>
             <div><Clock3 size={19} /><span><strong>60 minutos</strong><small>Sin tiempo de espera</small></span></div>
             <div><MapPin size={19} /><span><strong>Tata 5082, Caseros</strong><small>Atención presencial</small></span></div>
@@ -85,6 +85,7 @@ export default function ReservaGero() {
             <p><Check size={15} /> Masajes descontracturantes</p>
             <p><Check size={15} /> Ventosas y pistola de percusión</p>
             <p><Check size={15} /> Estiramientos y ajustes</p>
+            <div className={styles.comfortNote}>Vení con ropa cómoda para aprovechar mejor la sesión.</div>
           </div>
         </aside>
 
