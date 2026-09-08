@@ -12,7 +12,7 @@
 .kicker { margin: 0 0 12px; color: #8fa7bf; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.4px; }
 .summary h1 { margin: 0; font-size: clamp(40px, 4.5vw, 57px); line-height: 1.03; letter-spacing: -3px; }
 .description { margin: 22px 0 31px; color: #a6b0ba; font-size: 16px; line-height: 1.6; }
-.heroPhoto { width: 100%; aspect-ratio: 1.7 / 1; margin: 0 0 28px; display: block; border: 1px solid #2d3741; border-radius: 16px; object-fit: cover; object-position: 50% 31%; filter: grayscale(1) contrast(1.08); }
+.heroPhoto { width: 100%; aspect-ratio: 4 / 3; margin: 0 0 28px; display: block; border: 1px solid #2d3741; border-radius: 16px; object-fit: cover; object-position: 50% 68%; filter: grayscale(1) contrast(1.08); }
 .facts { padding: 5px 0; border-top: 1px solid #252c34; border-bottom: 1px solid #252c34; }
 .facts > div { padding: 15px 0; display: flex; align-items: center; gap: 13px; }
 .facts svg { color: #8fa7bf; flex: 0 0 auto; }
