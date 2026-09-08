@@ -9,6 +9,7 @@ import {
   RefreshCw,
 } from "lucide-react"
 import styles from "./page.module.css"
+import WhatsAppCTA from "@/components/whatsapp-cta"
 
 const whatsappUrl =
   "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20ver%20c%C3%B3mo%20funcionar%C3%ADa%20el%20seguimiento%20de%20turnos%20y%20consultas%20en%20mi%20centro."
@@ -55,9 +56,9 @@ export default function CentrosEsteticaPage() {
             usando las herramientas que ya conoce.
           </p>
           <div className={styles.actions}>
-            <a className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer">
+            <WhatsAppCTA className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="hero_whatsapp">
               Verlo aplicado a mi centro <ArrowRight size={18} />
-            </a>
+            </WhatsAppCTA>
             <a className={styles.secondary} href="#como-funciona">Ver cómo funciona</a>
           </div>
           <p className={styles.microcopy}>Conversación de 20 minutos · Sin costo · Sin compromiso</p>
@@ -119,9 +120,9 @@ export default function CentrosEsteticaPage() {
           <strong>USD 150 <small>instalación</small></strong>
           <strong>USD 79 <small>por mes</small></strong>
           <p>Sin permanencia mínima. Los servicios de mensajería, si los hubiera, se pagan aparte.</p>
-          <a className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer">
+          <WhatsAppCTA className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="pilot_whatsapp">
             Quiero conocer el piloto <ArrowRight size={18} />
-          </a>
+          </WhatsAppCTA>
         </div>
       </section>
 
@@ -137,7 +138,7 @@ export default function CentrosEsteticaPage() {
 
       <section className={styles.finalCta}>
         <div><p className={styles.eyebrow}>Una charla simple</p><h2>Mostrame cómo trabajan hoy y te cuento cómo lo aplicaríamos.</h2></div>
-        <a className={styles.lightButton} href={whatsappUrl} target="_blank" rel="noreferrer">Conversar con Flor <ArrowRight size={18} /></a>
+        <WhatsAppCTA className={styles.lightButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="final_whatsapp">Conversar con Flor <ArrowRight size={18} /></WhatsAppCTA>
       </section>
     </main>
   )
