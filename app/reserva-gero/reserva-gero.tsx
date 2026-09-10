@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useMemo, useState } from "react"
+import { FormEvent, useEffect, useMemo, useState } from "react"
 import {
   ArrowLeft,
   ArrowRight,
@@ -15,13 +15,6 @@ import styles from "./reserva.module.css"
 
 type Day = { key: string; weekday: string; day: string; month: string }
 
-const slotsByDay: Record<string, string[]> = {
-  "0": ["09:00", "10:30", "12:00", "15:00", "17:00", "18:30"],
-  "1": ["10:00", "11:30", "14:00", "16:30", "18:30"],
-  "2": ["09:00", "12:30", "14:30", "17:30"],
-  "3": ["09:30", "11:00", "13:30", "16:00", "18:30"],
-}
-
 function getNextDays(): Day[] {
   const result: Day[] = []
   const cursor = new Date()
@@ -30,7 +23,7 @@ function getNextDays(): Day[] {
     cursor.setDate(cursor.getDate() + 1)
     if (cursor.getDay() === 0) continue
     result.push({
-      key: String(result.length),
+      key: `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`,
       weekday: new Intl.DateTimeFormat("es-AR", { weekday: "short" }).format(cursor).replace(".", ""),
       day: String(cursor.getDate()),
       month: new Intl.DateTimeFormat("es-AR", { month: "short" }).format(cursor).replace(".", ""),
@@ -41,26 +34,76 @@ function getNextDays(): Day[] {
 
 export default function ReservaGero() {
   const days = useMemo(getNextDays, [])
-  const [dayKey, setDayKey] = useState("0")
+  const [dayKey, setDayKey] = useState(days[0]?.key ?? "")
   const [time, setTime] = useState("")
   const [step, setStep] = useState<"schedule" | "details" | "pending">("schedule")
   const [copied, setCopied] = useState(false)
+  const [slots, setSlots] = useState<string[]>([])
+  const [loadingSlots, setLoadingSlots] = useState(true)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
   const selectedDay = days.find((day) => day.key === dayKey) ?? days[0]
+
+  useEffect(() => {
+    let cancelled = false
+    setLoadingSlots(true)
+    setError("")
+    setTime("")
+
+    fetch(`/api/gero/availability?date=${encodeURIComponent(dayKey)}`, { cache: "no-store" })
+      .then(async (response) => {
+        const data = await response.json()
+        if (!response.ok) throw new Error(data.error)
+        if (!cancelled) setSlots(data.slots)
+      })
+      .catch(() => {
+        if (!cancelled) setError("No pudimos cargar los horarios. Intentá nuevamente.")
+      })
+      .finally(() => {
+        if (!cancelled) setLoadingSlots(false)
+      })
+
+    return () => { cancelled = true }
+  }, [dayKey])
 
   function continueToDetails() {
     if (time) setStep("details")
   }
 
-  function submitBooking(event: FormEvent<HTMLFormElement>) {
+  async function submitBooking(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setStep("pending")
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    setSubmitting(true)
+    setError("")
+    const formData = new FormData(event.currentTarget)
+
+    try {
+      const response = await fetch("/api/gero/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          date: dayKey,
+          time,
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          notes: formData.get("notes"),
+        }),
+      })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error)
+      setStep("pending")
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } catch (bookingError) {
+      setError(bookingError instanceof Error ? bookingError.message : "No pudimos reservar el horario.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
     <main className={styles.page}>
-      <div className={styles.demoBar}>Versión de prueba · El turno no se reservará realmente</div>
+      <div className={styles.demoBar}>Agenda online · Elegí un horario disponible</div>
       <header className={styles.header}>
         <div className={styles.identity}>
           <img className={styles.avatar} src="/geronimo-jorge.jpg" alt="Gerónimo Jorge" />
@@ -105,10 +148,13 @@ export default function ReservaGero() {
             </div>
             <p className={styles.slotLabel}>Horarios disponibles</p>
             <div className={styles.slots}>
-              {slotsByDay[dayKey].map((slot) => (
+              {slots.map((slot) => (
                 <button key={slot} className={time === slot ? styles.selectedSlot : ""} onClick={() => setTime(slot)}>{slot}</button>
               ))}
             </div>
+            {loadingSlots && <p>Cargando horarios…</p>}
+            {!loadingSlots && !error && slots.length === 0 && <p>No quedan horarios disponibles para este día.</p>}
+            {error && <p>{error}</p>}
             <button className={styles.primary} disabled={!time} onClick={continueToDetails}>Continuar <ArrowRight size={18} /></button>
           </>}
 
@@ -121,13 +167,14 @@ export default function ReservaGero() {
               <p>Los usamos únicamente para gestionar tu turno.</p>
             </div>
             <form className={styles.form} onSubmit={submitBooking}>
-              <label>Nombre y apellido<input required placeholder="Ej.: María López" /></label>
+              <label>Nombre y apellido<input required name="name" placeholder="Ej.: María López" /></label>
               <div className={styles.twoColumns}>
-                <label>WhatsApp<input required type="tel" placeholder="11 1234 5678" /></label>
-                <label>Email<input required type="email" placeholder="nombre@email.com" /></label>
+                <label>WhatsApp<input required name="phone" type="tel" placeholder="11 1234 5678" /></label>
+                <label>Email<input required name="email" type="email" placeholder="nombre@email.com" /></label>
               </div>
-              <label>¿Querés contarle algo antes de la sesión? <small>Opcional</small><textarea rows={4} placeholder="Molestia, zona a tratar u otra consulta" /></label>
-              <button className={styles.primary} type="submit">Solicitar turno <ArrowRight size={18} /></button>
+              <label>¿Querés contarle algo antes de la sesión? <small>Opcional</small><textarea name="notes" rows={4} placeholder="Molestia, zona a tratar u otra consulta" /></label>
+              {error && <p>{error}</p>}
+              <button className={styles.primary} type="submit" disabled={submitting}>{submitting ? "Reservando…" : "Solicitar turno"} <ArrowRight size={18} /></button>
             </form>
           </>}
 
@@ -139,7 +186,7 @@ export default function ReservaGero() {
             <div className={styles.alias}><small>Alias</small><strong>Geromasajes</strong><button type="button" onClick={async () => { await navigator.clipboard.writeText("Geromasajes"); setCopied(true) }}>{copied ? "Copiado" : "Copiar"}</button></div>
             <a className={styles.whatsapp} href="https://wa.me/5491171701274?text=Hola%20Gero%2C%20te%20env%C3%ADo%20el%20comprobante%20de%20la%20se%C3%B1a%20para%20mi%20turno." target="_blank" rel="noreferrer"><MessageSquareText size={18} /> Enviar comprobante por WhatsApp</a>
             <p className={styles.expiry}>Si la seña no se recibe dentro de las próximas 2 horas, el horario volverá a quedar disponible.</p>
-            <button className={styles.restart} onClick={() => { setStep("schedule"); setTime("") }}>Volver a probar la demo</button>
+            <button className={styles.restart} onClick={() => { setStep("schedule"); setTime("") }}>Elegir otro turno</button>
           </div>}
         </section>
       </section>
