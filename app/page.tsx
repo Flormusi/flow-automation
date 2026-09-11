@@ -8,6 +8,7 @@ import {
   Search,
   WalletCards,
 } from "lucide-react"
+import WhatsAppCTA from "@/components/whatsapp-cta"
 
 const whatsappUrl =
   "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20negocio."
@@ -48,7 +49,7 @@ export default function Home() {
           <a href="#servicio">El servicio</a>
           <a href="#sobre-mi">Sobre mí</a>
         </nav>
-        <a className="button button-small" href={whatsappUrl} target="_blank" rel="noreferrer">Hablemos <ArrowRight size={16} /></a>
+        <WhatsAppCTA className="button button-small" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_header_whatsapp">Hablemos <ArrowRight size={16} /></WhatsAppCTA>
       </header>
 
       <section className="hero" id="inicio">
@@ -57,7 +58,7 @@ export default function Home() {
           <h1>Tu negocio no necesita otra herramienta.<span> Necesita funcionar mejor.</span></h1>
           <p className="hero-text">Vemos dónde perdés tiempo, dinero o clientes. Después creamos una solución simple para resolverlo.</p>
           <div className="hero-actions">
-            <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Quiero ordenar mi negocio <ArrowRight size={18} /></a>
+            <WhatsAppCTA className="button" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_hero_whatsapp">Quiero ordenar mi negocio <ArrowRight size={18} /></WhatsAppCTA>
             <a className="text-link" href="#metodo">Ver cómo trabajamos <ChevronRight size={17} /></a>
           </div>
           <p className="microcopy">Primera conversación de 20 minutos · Sin costo · Sin propuesta genérica</p>
@@ -141,7 +142,7 @@ export default function Home() {
         </div>
         <div className="service-cta">
           <p>Cada negocio es distinto. El precio depende de lo que haya que resolver.</p>
-          <a className="button" href={whatsappUrl} target="_blank" rel="noreferrer">Contarle mi problema a Flor <ArrowRight size={17} /></a>
+          <WhatsAppCTA className="button" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_solutions_whatsapp">Contarle mi problema a Flor <ArrowRight size={17} /></WhatsAppCTA>
         </div>
       </section>
 
@@ -149,7 +150,7 @@ export default function Home() {
         <div className="examples-copy">
           <p className="eyebrow">Algunos ejemplos</p><h2>¿Qué podríamos mejorar?</h2>
           <p>Podemos ayudarte a ahorrar tareas, ordenar la información y hacer seguimientos a tiempo. La solución depende de tu negocio.</p>
-          <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Contame qué te está pasando <ArrowRight size={17} /></a>
+          <WhatsAppCTA className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_examples_whatsapp">Contame qué te está pasando <ArrowRight size={17} /></WhatsAppCTA>
           <a className="text-link example-solution-link" href="/centros-estetica">Ver ejemplo para centros de estética <ArrowRight size={17} /></a>
         </div>
         <div className="examples-list">
@@ -197,7 +198,7 @@ export default function Home() {
 
       <section className="final-cta" id="contacto">
         <div><p className="eyebrow">Empecemos por lo que hoy te complica</p><h2>¿Qué te gustaría que funcionara mejor?</h2><p>Contanos cómo trabajás y qué tarea te está quitando tiempo. La primera charla dura 20 minutos y no tiene costo.</p></div>
-        <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Conversar con Flor <MessagesSquare size={18} /></a>
+        <WhatsAppCTA className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_final_whatsapp">Conversar con Flor <MessagesSquare size={18} /></WhatsAppCTA>
       </section>
 
       <footer>
