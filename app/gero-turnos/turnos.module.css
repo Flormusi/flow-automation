@@ -1,0 +1,31 @@
+.page { min-height: 100vh; padding: 48px 20px; background: #0b0f13; color: #f4f6f8; }
+.login, .dashboard { width: min(720px, 100%); margin: 0 auto; }
+.login { max-width: 390px; margin-top: 9vh; padding: 32px; border: 1px solid #2c343d; border-radius: 20px; background: #151a20; }
+.login img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: 50% 27%; }
+.login p, .dashboard header p { margin: 18px 0 5px; color: #91abc4; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+.login h1, .dashboard h1 { margin: 0 0 25px; font-size: 34px; }
+.login label { display: block; color: #b9c2cb; font-size: 12px; font-weight: 700; }
+.login input { width: 100%; margin-top: 8px; padding: 13px; border: 1px solid #343d47; border-radius: 9px; background: #10151a; color: white; }
+.login button, .dashboard header button, .actions button { border: 0; border-radius: 9px; cursor: pointer; font-weight: 750; }
+.login button { width: 100%; margin-top: 20px; padding: 13px; background: #526d86; color: white; }
+.error { display: block; margin-top: 13px; color: #f1a3a3; font-size: 12px; }
+.dashboard header { margin-bottom: 26px; display: flex; align-items: end; justify-content: space-between; gap: 15px; }
+.dashboard header p { margin-top: 0; }
+.dashboard header h1 { margin-bottom: 0; }
+.dashboard header button { padding: 10px 14px; background: #222c36; color: #c5d4e1; }
+.list { display: grid; gap: 14px; }
+.list article, .empty { padding: 22px; border: 1px solid #2c343d; border-radius: 16px; background: #151a20; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.top strong { font-size: 17px; }
+.top span { padding: 5px 8px; border-radius: 20px; font-size: 9px; font-weight: 800; text-transform: uppercase; }
+.pending { background: #3b3024; color: #e5bd8f; }
+.confirmed { background: #20372e; color: #9ad3b7; }
+.list h2 { margin: 13px 0 8px; font-size: 18px; text-transform: capitalize; }
+.list p { margin: 5px 0; color: #929da8; font-size: 12px; }
+.notes { padding: 10px; border-radius: 8px; background: #10151a; }
+.actions { margin-top: 17px; display: flex; gap: 9px; }
+.actions button { padding: 10px 13px; }
+.confirm { background: #526d86; color: white; }
+.cancel { background: #292126; color: #d6a6ae; }
+.empty { color: #929da8; text-align: center; }
+@media (max-width: 520px) { .page { padding: 24px 13px; } .dashboard header { align-items: start; } .dashboard h1 { font-size: 28px; } .actions { flex-direction: column; } }
