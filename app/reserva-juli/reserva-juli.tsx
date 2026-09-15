@@ -69,7 +69,7 @@ export default function ReservaJuli() {
           <h1>Reservá tu sesión</h1>
           <p className={styles.description}>Elegí el momento que mejor te quede para una sesión personalizada, enfocada en aliviar molestias y recuperar movilidad.</p>
           <div className={styles.brandPanel}>
-            <img src="/renova-terapia-manual.jpg" alt="Renova Terapia Manual" />
+            <img src="/consultorio-renova.jpg" alt="Consultorio de Renova Terapia Manual" />
           </div>
           <div className={styles.facts}>
             <div><Clock3 size={19} /><span><strong>60 minutos</strong><small>Con 15 minutos entre turnos</small></span></div>
