@@ -28,7 +28,7 @@
 .cardHeading > span { color: #91abc4; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; }
 .cardHeading h2, .pending h2 { margin: 8px 0 8px; font-size: 30px; letter-spacing: -1.4px; }
 .cardHeading p { margin: 0; color: #8995a1; font-size: 12px; }
-.days { margin: 30px 0 26px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.days { margin: 30px 0 26px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 9px; }
 .days button { padding: 13px 7px; border: 1px solid #343d47; border-radius: 12px; background: #1a2027; color: #a7b1bb; cursor: pointer; }
 .days small, .days span { display: block; font-size: 9px; text-transform: uppercase; }
 .days strong { display: block; margin: 4px 0 2px; color: #f4f6f8; font-size: 20px; }
@@ -80,7 +80,7 @@
   .layout { padding: 32px 0 55px; }
   .summary h1 { font-size: 39px; letter-spacing: -2.4px; }
   .bookingCard { min-height: 560px; padding: 24px 17px; border-radius: 17px; }
-  .days { gap: 6px; }
+  .days { grid-template-columns: repeat(3, 1fr); gap: 6px; }
   .days button { padding: 11px 4px; }
   .slots { grid-template-columns: repeat(2, 1fr); }
   .twoColumns { grid-template-columns: 1fr; gap: 0; }

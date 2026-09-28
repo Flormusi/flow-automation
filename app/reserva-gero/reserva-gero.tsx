@@ -19,7 +19,7 @@ function getNextDays(): Day[] {
   const result: Day[] = []
   const cursor = new Date()
   cursor.setHours(12, 0, 0, 0)
-  while (result.length < 4) {
+  while (result.length < 6) {
     cursor.setDate(cursor.getDate() + 1)
     if (cursor.getDay() === 0) continue
     result.push({
