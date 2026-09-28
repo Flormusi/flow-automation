@@ -15,8 +15,8 @@ export function availableStartsForDate(date: string) {
   const weekday = new Date(`${date}T12:00:00-03:00`).getUTCDay()
   if (weekday === 0) return []
 
-  const openingMinutes = weekday === 6 ? 10 * 60 : 9 * 60
-  const lastStartMinutes = weekday === 6 ? 15 * 60 : 18 * 60 + 30
+  const openingMinutes = 9 * 60
+  const lastStartMinutes = weekday === 6 ? 15 * 60 : 19 * 60
   const slots: string[] = []
 
   for (let minutes = openingMinutes; minutes <= lastStartMinutes; minutes += 30) {

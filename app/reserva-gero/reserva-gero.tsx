@@ -121,7 +121,7 @@ export default function ReservaGero() {
           <div className={styles.facts}>
             <div><Clock3 size={19} /><span><strong>60 minutos</strong><small>Sin tiempo de espera</small></span></div>
             <div><MapPin size={19} /><span><strong>Tata 5082, Caseros</strong><small>Atención presencial</small></span></div>
-            <div><CalendarDays size={19} /><span><strong>Seña de $5.000</strong><small>El turno se confirma al recibirla</small></span></div>
+            <div><CalendarDays size={19} /><span><strong>Sesión $40.000</strong><small>Seña de $10.000 para confirmar</small></span></div>
           </div>
           <div className={styles.includes}>
             <span>La sesión puede incluir</span>
@@ -182,7 +182,7 @@ export default function ReservaGero() {
             <span className={styles.successIcon}><Check size={28} /></span>
             <p className={styles.kicker}>Horario reservado por 2 horas</p>
             <h2>Solo falta enviar la seña</h2>
-            <p>Para confirmar tu turno del <strong>{selectedDay.weekday} {selectedDay.day} de {selectedDay.month} a las {time}</strong>, transferí $5.000 y enviá el comprobante.</p>
+            <p>Para confirmar tu turno del <strong>{selectedDay.weekday} {selectedDay.day} de {selectedDay.month} a las {time}</strong>, transferí la seña de $10.000 y enviá el comprobante.</p>
             <div className={styles.alias}><small>Alias</small><strong>Geromasajes</strong><button type="button" onClick={async () => { await navigator.clipboard.writeText("Geromasajes"); setCopied(true) }}>{copied ? "Copiado" : "Copiar"}</button></div>
             <a className={styles.whatsapp} href="https://wa.me/5491171701274?text=Hola%20Gero%2C%20te%20env%C3%ADo%20el%20comprobante%20de%20la%20se%C3%B1a%20para%20mi%20turno." target="_blank" rel="noreferrer"><MessageSquareText size={18} /> Enviar comprobante por WhatsApp</a>
             <p className={styles.expiry}>Si la seña no se recibe dentro de las próximas 2 horas, el horario volverá a quedar disponible.</p>
