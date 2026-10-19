@@ -8,10 +8,10 @@ const metaPixelId = "1394376345398609"
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowautomation.com.ar"),
   title: {
-    default: "Flow Automation Studio | Sistemas simples para negocios",
+    default: "Flow Automation Studio | Automatización de procesos para empresas",
     template: "%s | Flow Automation Studio",
   },
-  description: "Vemos dónde tu negocio pierde tiempo, dinero o clientes y creamos una solución simple para resolverlo.",
+  description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
   applicationName: "Flow Automation Studio",
   keywords: ["automatización de negocios", "sistemas a medida", "mejora de procesos", "Flow Automation Studio"],
   authors: [{ name: "Flow Automation Studio" }],
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     siteName: "Flow Automation Studio",
-    title: "Flow Automation Studio | Sistemas simples para negocios",
-    description: "Vemos dónde tu negocio pierde tiempo, dinero o clientes y creamos una solución simple para resolverlo.",
+    title: "Flow Automation Studio | Automatización de procesos para empresas",
+    description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flow Automation Studio | Sistemas simples para negocios",
-    description: "Vemos dónde tu negocio pierde tiempo, dinero o clientes y creamos una solución simple para resolverlo.",
+    title: "Flow Automation Studio | Automatización de procesos para empresas",
+    description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
   },
 }
 

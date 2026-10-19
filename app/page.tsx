@@ -1,210 +1,169 @@
-import {
-  ArrowRight,
-  Check,
-  ChevronRight,
-  Clock3,
-  MessagesSquare,
-  RefreshCw,
-  Search,
-  WalletCards,
-} from "lucide-react"
+import { ArrowRight, MessagesSquare } from "lucide-react"
 import WhatsAppCTA from "@/components/whatsapp-cta"
+import styles from "./home.module.css"
+
+const calendlyUrl = "https://calendly.com/flowautomationstudio/30min"
 
 const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20negocio."
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20empresa."
 
-const pains = [
-  { number: "01", title: "Todo termina pasando por vos", text: "Consultas, decisiones, seguimiento y tareas chicas que te sacan foco de lo importante.", icon: Clock3 },
-  { number: "02", title: "La información vive en demasiados lugares", text: "WhatsApp, planillas, notas y aplicaciones que están desconectadas.", icon: RefreshCw },
-  { number: "03", title: "Se pierden oportunidades en el camino", text: "Mensajes sin respuesta, seguimientos tardíos, cobros demorados y clientes que se enfrían.", icon: WalletCards },
-]
-
-const examples = [
-  "Responder y ordenar consultas entrantes",
-  "Hacer seguimiento sin depender de la memoria",
-  "Recordar turnos, pagos y renovaciones",
-  "Mantener actualizada la información en las aplicaciones que ya usás",
-  "Recibir alertas cuando algo necesita atención",
-  "Armar reportes sin copiar datos a mano",
+const services = [
+  {
+    number: "01",
+    title: "Diagnóstico de procesos",
+    description: "Relevo cómo trabajan hoy, mido dónde se pierde tiempo o plata y te entrego un plan priorizado.",
+    fit: "Ideal si sabés que algo no funciona, pero no por dónde empezar.",
+  },
+  {
+    number: "02",
+    title: "Seguimiento comercial ordenado",
+    description: "Todas las consultas en una sola bandeja, conectada a tus canales, con recordatorios de cuándo volver a contactar.",
+    fit: "Ideal si perdés ventas por responder tarde o no hacer seguimiento.",
+  },
+  {
+    number: "03",
+    title: "Tablero de indicadores",
+    description: "Tus números clave en un solo lugar, actualizados automáticamente, sin copiar datos a mano.",
+    fit: "Ideal si te enterás tarde de cómo viene el mes.",
+  },
 ]
 
 const process = [
-  { step: "01", title: "Te escuchamos", text: "Nos contás cómo trabajás, qué querés mejorar y qué tareas te están complicando." },
-  { step: "02", title: "Elegimos por dónde empezar", text: "Buscamos el problema que más tiempo, dinero o clientes te está costando." },
-  { step: "03", title: "Te mostramos la solución", text: "Te explicamos qué haríamos, cuánto tardaría y cuánto costaría. Sin sorpresas." },
-  { step: "04", title: "La ponemos a funcionar", text: "Nos ocupamos de crearla, probarla y enseñarte a usarla." },
+  { number: "1", title: "Charla de 20 minutos", text: "Me contás qué está pasando. Sin costo y sin compromiso." },
+  { number: "2", title: "Propuesta clara", text: "Te explico qué resolvería primero, cuánto tarda y cuánto cuesta. Vos decidís." },
+  { number: "3", title: "Funcionando", text: "Lo construyo, lo pruebo con tu equipo y te enseño a usarlo." },
 ]
 
 export default function Home() {
   return (
-    <main>
-      <header className="site-header">
+    <main className={styles.page}>
+      <header className={styles.header}>
         <a className="brand" href="#inicio" aria-label="Flow Automation Studio, inicio">
           <img className="brand-mark" src="/flow-automation-mark.svg" alt="" width="38" height="38" />
           <span><strong>Flow Automation</strong><small>Studio</small></span>
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#problemas">El problema</a>
-          <a href="#metodo">Cómo trabajamos</a>
-          <a href="#servicio">El servicio</a>
-          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#como">Cómo trabajo</a>
         </nav>
-        <WhatsAppCTA className="button button-small" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_header_whatsapp">Hablemos <ArrowRight size={16} /></WhatsAppCTA>
+        <a className="button button-small" href={calendlyUrl} target="_blank" rel="noreferrer">
+          Agendar 20 min <ArrowRight size={16} />
+        </a>
       </header>
 
-      <section className="hero" id="inicio">
-        <div className="hero-copy">
-          <p className="eyebrow">Menos tareas manuales. Más tiempo para tu negocio.</p>
-          <h1>Tu negocio no necesita otra herramienta.<span> Necesita funcionar mejor.</span></h1>
-          <p className="hero-text">Vemos dónde perdés tiempo, dinero o clientes. Después creamos una solución simple para resolverlo.</p>
-          <div className="hero-actions">
-            <WhatsAppCTA className="button" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_hero_whatsapp">Quiero ordenar mi negocio <ArrowRight size={18} /></WhatsAppCTA>
-            <a className="text-link" href="#metodo">Ver cómo trabajamos <ChevronRight size={17} /></a>
-          </div>
-          <p className="microcopy">Primera conversación de 20 minutos · Sin costo · Sin propuesta genérica</p>
+      <section className={styles.hero} id="inicio">
+        <p className="eyebrow">Automatización de procesos para empresas</p>
+        <h1>Tus procesos crecieron.<br /><span>Tu forma de trabajar, no.</span></h1>
+        <p className={styles.heroText}>
+          Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo
+          con automatización a medida.
+        </p>
+        <div className={styles.actions}>
+          <a className="button" href={calendlyUrl} target="_blank" rel="noreferrer">
+            Agendar una charla de 20 min <ArrowRight size={18} />
+          </a>
+          <WhatsAppCTA className={styles.secondaryButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_hero_whatsapp">
+            Escribirme por WhatsApp
+          </WhatsAppCTA>
         </div>
+        <p className={styles.microcopy}>Sin costo · Sin propuesta genérica</p>
+      </section>
 
-        <div className="hero-system" aria-label="Ejemplo de un problema de negocio">
-          <div className="system-topline"><span>Así vemos el problema</span><span className="status"><span /> en revisión</span></div>
-          <div className="system-question">
-            <Search size={20} />
-            <div><small>La pregunta correcta</small><strong>¿Qué está frenando hoy al negocio?</strong></div>
+      <section className={styles.pains} aria-labelledby="pains-title">
+        <div className={styles.inner}>
+          <h2 id="pains-title">Lo que frena a una empresa casi nunca es la falta de esfuerzo.</h2>
+          <div className={styles.painGrid}>
+            <article><h3>Datos en todos lados</h3><p>Planillas, mails y WhatsApp que nadie cruza. Los números llegan tarde o no llegan.</p></article>
+            <article><h3>Tareas que se repiten</h3><p>Copiar, pegar, controlar y avisar a mano, todos los días.</p></article>
+            <article><h3>Oportunidades que se enfrían</h3><p>Consultas sin seguimiento, cobros demorados y desvíos que se detectan cuando ya costaron.</p></article>
           </div>
-          <div className="system-flow">
-            <div><span>01</span><p>Consultas llegan por WhatsApp</p></div><i />
-            <div><span>02</span><p>Seguimiento manual e irregular</p></div><i />
-            <div className="system-alert"><span>03</span><p>Ventas que se enfrían</p></div>
-          </div>
-          <div className="system-note"><span>Mejora encontrada</span><p>Ordenar las consultas y recordar cuándo volver a contactar a cada persona.</p></div>
         </div>
       </section>
 
-      <section className="manifesto"><p>No empezamos por la IA. <strong>Empezamos por entender el negocio.</strong></p></section>
-
-      <section className="section" id="problemas">
-        <div className="section-heading split-heading">
-          <div><p className="eyebrow">Cuando crecer empieza a pesar</p><h2>El problema rara vez es la falta de esfuerzo.</h2></div>
-          <p>Muchas veces el negocio crece, pero la forma de trabajar queda igual. Entonces aparecen más tareas, más desorden y menos tiempo para avanzar.</p>
-        </div>
-        <div className="pain-grid">
-          {pains.map(({ number, title, text, icon: Icon }) => (
-            <article className="pain-card" key={number}>
-              <div className="card-meta"><span>{number}</span><Icon size={22} /></div>
-              <h3>{title}</h3><p>{text}</p>
+      <section className={styles.section} id="servicios">
+        <p className="eyebrow">Por dónde empezar</p>
+        <h2>Tres formas concretas de arrancar</h2>
+        <div className={styles.serviceGrid}>
+          {services.map((service) => (
+            <article className={styles.serviceCard} key={service.number}>
+              <span>{service.number}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <strong>{service.fit}</strong>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section method-section" id="metodo">
-        <div className="section-heading centered-heading">
-          <p className="eyebrow">Cómo trabajamos</p><h2>Primero entendemos qué pasa. Después vemos cómo resolverlo.</h2>
-          <p>No usamos tecnología porque sí. Cada cambio tiene que hacerte el trabajo más fácil.</p>
-        </div>
-        <div className="process-list">
-          {process.map((item) => <article key={item.step}><span>{item.step}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}
-        </div>
-      </section>
-
-      <section className="section service-section" id="servicio">
-        <div className="section-heading service-heading">
-          <div>
-            <p className="eyebrow">Una forma simple de empezar</p>
-            <h2>Del problema a una solución que funciona.</h2>
-          </div>
-          <p>
-            No necesitás saber qué herramienta usar. Nos contás qué está pasando y vemos juntos si hay una forma clara
-            de mejorarlo.
-          </p>
-        </div>
-        <div className="service-grid">
-          <article>
-            <span className="service-number">01</span>
-            <p className="service-kicker">Primera charla</p>
-            <h3>Nos contás qué está pasando</h3>
-            <p>Hablamos durante 20 minutos para conocer tu negocio y ver si podemos ayudarte.</p>
-            <strong>Sin costo y sin compromiso</strong>
+      <section className={`${styles.section} ${styles.projectsSection}`} id="proyectos">
+        <h2>Proyectos</h2>
+        <div className={styles.projectGrid}>
+          <article className={styles.projectCard}>
+            <div className={styles.tags}><span>CRM omnicanal</span><span>Piloto en curso</span></div>
+            <h3>Empresa de servicios</h3>
+            <p><strong>El problema:</strong> las consultas llegaban por tres canales distintos y el seguimiento dependía de la memoria de cada persona.</p>
+            <p><strong>Lo que hice:</strong> conecté los tres canales a una bandeja única con Chatwoot, con estados y responsables por conversación.</p>
           </article>
-          <article className="service-featured">
-            <span className="service-number">02</span>
-            <p className="service-kicker">Plan de trabajo</p>
-            <h3>Te mostramos qué conviene hacer</h3>
-            <p>Te explicamos qué problema resolveríamos primero, cómo lo haríamos, cuánto tardaría y cuánto costaría.</p>
-            <strong>Vos decidís si querés avanzar</strong>
-          </article>
-          <article>
-            <span className="service-number">03</span>
-            <p className="service-kicker">Puesta en marcha</p>
-            <h3>Nos ocupamos de hacerlo realidad</h3>
-            <p>Creamos la solución, la probamos y te mostramos cómo usarla. Después podés elegir si querés que sigamos acompañándote.</p>
-            <strong>Sabés qué hacemos en cada momento</strong>
+          <article className={styles.projectCard}>
+            <div className={styles.tags}><span>Producto propio</span><span>Full stack</span></div>
+            <h3>TrainFit</h3>
+            <p>Plataforma para entrenadores personales, diseñada y desarrollada de punta a punta: turnos, clientes, rutinas y pagos.</p>
+            <p>Es la prueba de que no solo conecto herramientas: también construyo sistemas completos cuando hace falta.</p>
           </article>
         </div>
-        <div className="service-cta">
-          <p>Cada negocio es distinto. El precio depende de lo que haya que resolver.</p>
-          <WhatsAppCTA className="button" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_solutions_whatsapp">Contarle mi problema a Flor <ArrowRight size={17} /></WhatsAppCTA>
+      </section>
+
+      <section className={styles.section} id="como">
+        <h2>Cómo trabajo</h2>
+        <div className={styles.processGrid}>
+          {process.map((item) => (
+            <article key={item.number}>
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className={styles.fitGrid}>
+          <article><h3>Es para vos si</h3><p>Tu equipo repite tareas todos los días, perdés clientes por falta de seguimiento o querés ordenar antes de sumar gente.</p></article>
+          <article><h3>Probablemente no si</h3><p>Buscás comprar una herramienta sin revisar cómo trabajás, o todavía no hay un problema claro para resolver.</p></article>
         </div>
       </section>
 
-      <section className="section examples-section" id="ejemplos">
-        <div className="examples-copy">
-          <p className="eyebrow">Algunos ejemplos</p><h2>¿Qué podríamos mejorar?</h2>
-          <p>Podemos ayudarte a ahorrar tareas, ordenar la información y hacer seguimientos a tiempo. La solución depende de tu negocio.</p>
-          <WhatsAppCTA className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_examples_whatsapp">Contame qué te está pasando <ArrowRight size={17} /></WhatsAppCTA>
-          <a className="text-link example-solution-link" href="/centros-estetica">Ver ejemplo para centros de estética <ArrowRight size={17} /></a>
+      <section className={`${styles.section} ${styles.founder}`}>
+        <div className={styles.founderPhoto}>
+          <img src="/flor-musitani.png" alt="Flor, desarrolladora y fundadora de Flow Automation Studio" width="300" height="300" />
         </div>
-        <div className="examples-list">
-          {examples.map((example) => <div key={example}><Check size={18} /><span>{example}</span></div>)}
-        </div>
-      </section>
-
-      <section className="section fit-section">
-        <div className="fit-intro"><p className="eyebrow">Para quién es</p><h2>Trabajamos mejor con negocios que ya sienten el costo del desorden.</h2></div>
-        <div className="fit-columns">
-          <div><span className="fit-label good">Es para vos si</span><ul><li>Tu equipo repite tareas todos los días.</li><li>Hay ventas o clientes que se pierden por falta de seguimiento.</li><li>Querés ordenar antes de sumar más herramientas o personas.</li></ul></div>
-          <div><span className="fit-label neutral">Probablemente no si</span><ul><li>Solo buscás comprar una herramienta sin revisar cómo trabajás.</li><li>Querés una solución instantánea sin contarnos cómo funciona tu negocio.</li><li>Todavía no hay un problema claro que quieras resolver.</li></ul></div>
-        </div>
-      </section>
-
-      <section className="section founder-section" id="sobre-mi">
-        <div className="founder-photo">
-          <img src="/flor-musitani.png" alt="Flor, fundadora de Flow Automation Studio" width="300" height="300" />
-          <small>Buenos Aires</small>
-        </div>
-        <div className="founder-copy">
+        <div className={styles.founderCopy}>
           <p className="eyebrow">Quién está detrás</p>
           <h2>Hola, soy Flor.</h2>
-          <p className="founder-lead">
-            Creé Flow Automation Studio para resolver problemas reales de los negocios, no para sumar tecnología porque sí.
-          </p>
-          <p>
-            Mi trabajo es entender cómo funciona tu negocio, encontrar qué se puede hacer mejor y crear una solución
-            fácil de usar. Te acompaño desde la primera charla hasta que todo queda funcionando.
-          </p>
-          <div className="founder-tags"><span>Menos tareas manuales</span><span>Más orden</span><span>Mejor seguimiento</span></div>
-          <a className="text-link" href="https://www.linkedin.com/company/flow-automation-studio/" target="_blank" rel="noreferrer">Ver Flow Automation Studio en LinkedIn <ArrowRight size={16} /></a>
+          <p>Soy desarrolladora full stack y fundadora de Flow Automation Studio. Antes pasé más de 10 años en selección de perfiles técnicos, entendiendo cómo trabajan los equipos por dentro.</p>
+          <p>Esa mezcla es la que traigo a cada proyecto: primero entiendo el proceso y los números, después construyo la solución. Te acompaño desde la primera charla hasta que todo queda funcionando.</p>
+          <a className="text-link" href="https://www.linkedin.com/company/flow-automation-studio/" target="_blank" rel="noreferrer">
+            Ver Flow Automation Studio en LinkedIn <ArrowRight size={16} />
+          </a>
         </div>
       </section>
 
-      <section className="section faq-section">
-        <div><p className="eyebrow">Preguntas frecuentes</p><h2>Antes de conversar</h2></div>
-        <div className="faq-list">
-          <details><summary>¿Necesito saber qué solución necesito?</summary><p>No. Nos contás el problema y nosotros te ayudamos a encontrar una forma simple de resolverlo.</p></details>
-          <details><summary>¿Trabajan solamente con WhatsApp?</summary><p>No. También podemos ayudarte con consultas, clientes, pagos, tareas, información y reportes.</p></details>
-          <details><summary>¿Cuánto cuesta un proyecto?</summary><p>Depende de lo que haya que resolver. Antes de empezar te decimos qué haríamos, cuánto tardaría y cuánto costaría.</p></details>
-          <details><summary>¿Tengo que cambiar las aplicaciones que ya uso?</summary><p>No necesariamente. Primero vemos si podemos ordenar y aprovechar mejor lo que ya tenés.</p></details>
+      <section className={styles.finalCta}>
+        <div>
+          <h2>¿Qué te gustaría que funcionara mejor?</h2>
+          <p>Contame qué tarea le está quitando tiempo a tu equipo. La primera charla dura 20 minutos y no tiene costo.</p>
+        </div>
+        <div className={styles.actions}>
+          <a className="button button-light" href={calendlyUrl} target="_blank" rel="noreferrer">
+            Agendar una charla <ArrowRight size={18} />
+          </a>
+          <WhatsAppCTA className={styles.lightSecondaryButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_final_whatsapp">
+            Escribirme por WhatsApp <MessagesSquare size={18} />
+          </WhatsAppCTA>
         </div>
       </section>
 
-      <section className="final-cta" id="contacto">
-        <div><p className="eyebrow">Empecemos por lo que hoy te complica</p><h2>¿Qué te gustaría que funcionara mejor?</h2><p>Contanos cómo trabajás y qué tarea te está quitando tiempo. La primera charla dura 20 minutos y no tiene costo.</p></div>
-        <WhatsAppCTA className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_final_whatsapp">Conversar con Flor <MessagesSquare size={18} /></WhatsAppCTA>
-      </section>
-
-      <footer>
-        <a className="brand footer-brand" href="#inicio"><img className="brand-mark" src="/flow-automation-mark.svg" alt="" width="38" height="38" /><span><strong>Flow Automation</strong><small>Studio</small></span></a>
-        <p>Sistemas simples para negocios que quieren funcionar mejor.</p>
-        <div><span>Argentina · Latinoamérica</span><span>© 2026 Flow Automation Studio</span></div>
+      <footer className={styles.footer}>
+        <span>Flow Automation Studio · Argentina · Latinoamérica</span>
+        <span>© 2026</span>
       </footer>
     </main>
   )
