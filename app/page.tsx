@@ -48,7 +48,7 @@ export default function Home() {
           <a href="#como">Cómo trabajo</a>
         </nav>
         <a className="button button-small" href={calendlyUrl} target="_blank" rel="noreferrer">
-          Agendar 20 min <ArrowRight size={16} />
+          Agendar <ArrowRight size={16} />
         </a>
       </header>
 
