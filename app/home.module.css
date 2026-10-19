@@ -109,7 +109,7 @@
 
 @media (max-width: 640px) {
   .header { width: calc(100% - 28px); height: 70px; }
-  .header :global(.button) { font-size: 0; width: 42px; padding: 11px; }
+  .header :global(.button) { min-height: 44px; padding: 10px 13px; font-size: 13px; white-space: nowrap; }
   .hero, .inner, .section, .finalCta, .footer { width: calc(100% - 28px); }
   .hero { min-height: auto; padding: 70px 0 78px; }
   .hero h1 { font-size: 46px; letter-spacing: -3px; }
