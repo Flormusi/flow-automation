@@ -100,10 +100,22 @@ export default function Home() {
         <h2>Proyectos</h2>
         <div className={styles.projectGrid}>
           <article className={styles.projectCard}>
-            <div className={styles.tags}><span>CRM omnicanal</span><span>Piloto en curso</span></div>
-            <h3>Empresa de servicios</h3>
-            <p><strong>El problema:</strong> las consultas llegaban por tres canales distintos y el seguimiento dependía de la memoria de cada persona.</p>
-            <p><strong>Lo que hice:</strong> conecté los tres canales a una bandeja única con Chatwoot, con estados y responsables por conversación.</p>
+            <div className={styles.tags}><span>CRM omnicanal</span><span>Seguimiento comercial</span></div>
+            <h3>Virtual Golf</h3>
+            <p><strong>El problema:</strong> las consultas llegaban por WhatsApp, Instagram y Facebook, y el seguimiento dependía de revisar cada canal por separado.</p>
+            <p><strong>Lo que hice:</strong> centralicé las conversaciones en una sola bandeja, con estados, responsables y un proceso claro para dar seguimiento a cada oportunidad.</p>
+          </article>
+          <article className={styles.projectCard}>
+            <div className={styles.tags}><span>Reservas online</span><span>Agenda conectada</span></div>
+            <h3>Gero Masajes</h3>
+            <p><strong>El problema:</strong> coordinar disponibilidad y reservas requería responder cada consulta y controlar la agenda manualmente.</p>
+            <p><strong>Lo que hice:</strong> construí un sistema de reservas conectado con la agenda, con horarios disponibles, gestión de turnos y confirmaciones.</p>
+          </article>
+          <article className={styles.projectCard}>
+            <div className={styles.tags}><span>Gestión de turnos</span><span>Recordatorios</span></div>
+            <h3>Renova Terapia Manual</h3>
+            <p><strong>El problema:</strong> organizar solicitudes, disponibilidad y confirmaciones consumía tiempo fuera de cada sesión.</p>
+            <p><strong>Lo que hice:</strong> desarrollé una experiencia de reserva con agenda conectada, confirmación de turnos y recordatorios para cada paciente.</p>
           </article>
           <article className={styles.projectCard}>
             <div className={styles.tags}><span>Producto propio</span><span>Full stack</span></div>
