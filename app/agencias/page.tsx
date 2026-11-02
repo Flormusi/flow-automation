@@ -13,10 +13,11 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react"
+import WhatsAppCTA from "@/components/whatsapp-cta"
 import styles from "./page.module.css"
 
 const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n%20t%C3%A9cnica%20con%20mi%20agencia."
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Flow%20Automation%20y%20quiero%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n%20t%C3%A9cnica%20con%20mi%20agencia."
 
 export const metadata: Metadata = {
   title: "Implementación técnica para agencias",
@@ -99,9 +100,9 @@ export default function AgenciasPage() {
             automatizaciones, herramientas conectadas y procesos internos listos para usar.
           </p>
           <div className={styles.actions}>
-            <a className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer">
+            <WhatsAppCTA className={styles.primary} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="agencias_hero_whatsapp">
               Conversar sobre un proyecto <ArrowRight size={18} />
-            </a>
+            </WhatsAppCTA>
             <a className={styles.secondary} href="#trabajos">Ver ejemplos</a>
           </div>
           <p className={styles.microcopy}>Por proyecto · White-label o colaboración directa · Alcance definido antes de empezar</p>
@@ -218,7 +219,7 @@ export default function AgenciasPage() {
 
       <section className={styles.finalCta}>
         <div><p className={styles.eyebrow}>Próximo proyecto</p><h2>Contame qué necesita tu cliente y revisamos si puedo tomar la parte técnica.</h2></div>
-        <a className={styles.lightButton} href={whatsappUrl} target="_blank" rel="noreferrer">Conversar con Flor <ArrowRight size={18} /></a>
+        <WhatsAppCTA className={styles.lightButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="agencias_final_whatsapp">Conversar con Flor <ArrowRight size={18} /></WhatsAppCTA>
       </section>
     </main>
   )
