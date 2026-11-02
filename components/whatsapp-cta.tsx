@@ -16,7 +16,7 @@ type WhatsAppCTAProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 export default function WhatsAppCTA({ contentName, onClick, children, ...anchorProps }: WhatsAppCTAProps) {
   const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
     if (typeof window !== "undefined" && typeof window.fbq === "function") {
-      window.fbq("track", "Lead", { content_name: contentName })
+      window.fbq("trackCustom", "WhatsAppClick", { content_name: contentName })
     }
     onClick?.(event)
   }
