@@ -5,7 +5,7 @@ import styles from "./home.module.css"
 const calendlyUrl = "https://calendly.com/flowautomationstudio/30min"
 
 const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20empresa."
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Flow%20Automation%20y%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20empresa."
 
 const services = [
   {

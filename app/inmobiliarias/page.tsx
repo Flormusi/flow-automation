@@ -16,7 +16,7 @@ import WhatsAppCTA from "@/components/whatsapp-cta"
 import styles from "./page.module.css"
 
 const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20ver%20c%C3%B3mo%20funcionar%C3%ADa%20el%20seguimiento%20de%20consultas%20en%20mi%20inmobiliaria."
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Flow%20Automation%20y%20quiero%20ver%20c%C3%B3mo%20funcionar%C3%ADa%20el%20seguimiento%20de%20consultas%20en%20mi%20inmobiliaria."
 
 export const metadata: Metadata = {
   title: "Seguimiento de consultas para inmobiliarias",
