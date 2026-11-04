@@ -175,6 +175,7 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <span>Flow Automation Studio · Argentina · Latinoamérica</span>
+        <a href="/politica-de-privacidad">Política de privacidad</a>
         <span>© 2026</span>
       </footer>
     </main>
