@@ -40,7 +40,7 @@ export default function PoliticaDePrivacidad() {
           <dl className={styles.details}>
             <div><dt>Nombre comercial</dt><dd>Flow Automation Studio</dd></div>
             <div><dt>Responsable</dt><dd>María Florencia Musitani</dd></div>
-            <div><dt>Domicilio</dt><dd>Aristóteles 1824</dd></div>
+            <div><dt>Domicilio</dt><dd>Av. La Plata 3600</dd></div>
             <div><dt>Contacto de privacidad</dt><dd><a href="mailto:flowautomationstudio@gmail.com">flowautomationstudio@gmail.com</a></dd></div>
           </dl>
         </section>
@@ -86,30 +86,24 @@ export default function PoliticaDePrivacidad() {
         <section>
           <h2>5. Herramientas y proveedores tecnológicos</h2>
           <p>
-            Flow Automation Studio utiliza servicios tecnológicos para recibir, gestionar y responder consultas comerciales.
-          </p>
-          <p>
-            Los datos proporcionados mediante formularios de Facebook e Instagram son procesados inicialmente a través de las plataformas de Meta.
-          </p>
-          <p>
-            Para gestionar las consultas, Flow Automation Studio podrá utilizar herramientas de correo electrónico, CRM y automatización comercial, según las necesidades operativas.
-          </p>
-          <p>
-            Cuando corresponda, estos servicios podrán implicar el almacenamiento o tratamiento de información en servidores ubicados fuera de Argentina, sujeto a las garantías legales aplicables.
+            Los datos proporcionados mediante formularios de Facebook e Instagram son procesados inicialmente a través de las plataformas de Meta. Una vez recibidos, Flow Automation Studio utiliza los datos para organizar, gestionar y responder las consultas comerciales de acuerdo con las finalidades indicadas en esta política.
           </p>
           <p>Flow Automation Studio no vende los datos personales de sus potenciales clientes a terceros.</p>
+          <p>
+            Si se incorporan otros servicios tecnológicos que intervengan en el tratamiento de los datos, esta política será actualizada para reflejar las prácticas efectivamente implementadas.
+          </p>
         </section>
 
         <section>
           <h2>6. Conservación y seguridad</h2>
           <p>
-            Flow Automation Studio conservará los datos personales de los interesados durante un plazo máximo de 12 meses desde la última interacción comercial, salvo que exista una relación contractual vigente, una obligación legal de conservación o una solicitud de eliminación que corresponda atender antes.
+            Los datos personales de contactos comerciales sin actividad se conservarán durante un plazo máximo de 12 meses, contado desde la última interacción comercial.
           </p>
           <p>
-            Se aplicarán medidas razonables de seguridad para proteger la información contra accesos no autorizados, pérdida, alteración o divulgación indebida, incluyendo controles de acceso a las herramientas utilizadas para gestionar los contactos.
+            Al cumplirse ese plazo, los datos serán eliminados o anonimizados, salvo que exista una relación contractual vigente o una obligación legal que requiera conservarlos por más tiempo. Una solicitud de supresión procedente podrá dar lugar a su eliminación antes del vencimiento de los 12 meses.
           </p>
           <p>
-            Una vez cumplida la finalidad del tratamiento y los plazos aplicables, los datos serán eliminados o anonimizados.
+            Flow Automation Studio es responsable de adoptar las medidas técnicas y organizativas necesarias para proteger los datos personales conforme a la Ley 25.326. Esta política no atribuye controles o prácticas de seguridad específicos que no hayan sido confirmados.
           </p>
         </section>
 
