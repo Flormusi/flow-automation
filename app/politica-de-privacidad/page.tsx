@@ -11,9 +11,6 @@ export const metadata: Metadata = {
   },
 }
 
-const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20quiero%20hacer%20una%20consulta%20sobre%20mis%20datos%20personales."
-
 export default function PoliticaDePrivacidad() {
   return (
     <main className={styles.page}>
@@ -35,22 +32,16 @@ export default function PoliticaDePrivacidad() {
           <p className={styles.updated}>Última actualización: 4 de noviembre de 2026</p>
         </div>
 
-        <aside className={styles.pending} aria-labelledby="informacion-pendiente">
-          <h2 id="informacion-pendiente">Información pendiente antes de publicar</h2>
-          <p>
-            Falta confirmar el nombre completo o razón social y el domicilio del responsable, además de un correo electrónico específico para consultas de privacidad. Estos datos deben incorporarse antes de usar esta página en formularios de Meta Ads.
-          </p>
-        </aside>
-
         <section>
           <h2>1. Responsable del tratamiento</h2>
           <p>
-            Los datos son tratados por <strong>Flow Automation Studio</strong>, estudio de automatización de procesos que opera en Argentina.
+            Los datos son tratados por <strong>María Florencia Musitani</strong>, titular de <strong>Flow Automation Studio</strong>, estudio de automatización de procesos que opera en Argentina.
           </p>
           <dl className={styles.details}>
-            <div><dt>Nombre legal o razón social</dt><dd>Pendiente de confirmación</dd></div>
-            <div><dt>Domicilio</dt><dd>Pendiente de confirmación</dd></div>
-            <div><dt>Contacto de privacidad</dt><dd>Pendiente de confirmar un correo electrónico</dd></div>
+            <div><dt>Nombre comercial</dt><dd>Flow Automation Studio</dd></div>
+            <div><dt>Responsable</dt><dd>María Florencia Musitani</dd></div>
+            <div><dt>Domicilio</dt><dd>Aristóteles 1824</dd></div>
+            <div><dt>Contacto de privacidad</dt><dd><a href="mailto:flowautomationstudio@gmail.com">flowautomationstudio@gmail.com</a></dd></div>
           </dl>
         </section>
 
@@ -95,21 +86,30 @@ export default function PoliticaDePrivacidad() {
         <section>
           <h2>5. Herramientas y proveedores tecnológicos</h2>
           <p>
-            Para gestionar consultas podrían utilizarse herramientas de CRM, automatización, correo electrónico, mensajería, alojamiento web u otros servicios tecnológicos. Esos proveedores solo deberían acceder a los datos en la medida necesaria para prestar sus servicios.
+            Flow Automation Studio utiliza servicios tecnológicos para recibir, gestionar y responder consultas comerciales.
           </p>
-          <p className={styles.note}>
-            Antes de publicar esta política debe confirmarse qué herramientas se usan efectivamente, dónde almacenan la información y si existen transferencias internacionales de datos.
+          <p>
+            Los datos proporcionados mediante formularios de Facebook e Instagram son procesados inicialmente a través de las plataformas de Meta.
           </p>
-          <p>No vendemos los datos personales recibidos mediante formularios de generación de leads.</p>
+          <p>
+            Para gestionar las consultas, Flow Automation Studio podrá utilizar herramientas de correo electrónico, CRM y automatización comercial, según las necesidades operativas.
+          </p>
+          <p>
+            Cuando corresponda, estos servicios podrán implicar el almacenamiento o tratamiento de información en servidores ubicados fuera de Argentina, sujeto a las garantías legales aplicables.
+          </p>
+          <p>Flow Automation Studio no vende los datos personales de sus potenciales clientes a terceros.</p>
         </section>
 
         <section>
           <h2>6. Conservación y seguridad</h2>
           <p>
-            Los datos deben conservarse únicamente durante el tiempo necesario para atender la consulta, gestionar la relación comercial y cumplir las obligaciones legales aplicables. Cuando dejan de ser necesarios, corresponde eliminarlos o anonimizararlos, salvo que exista una obligación legal de conservación.
+            Flow Automation Studio conservará los datos personales de los interesados durante un plazo máximo de 12 meses desde la última interacción comercial, salvo que exista una relación contractual vigente, una obligación legal de conservación o una solicitud de eliminación que corresponda atender antes.
           </p>
-          <p className={styles.note}>
-            Flow Automation Studio debe confirmar y documentar el plazo o criterio interno de conservación y las medidas técnicas y organizativas que aplica antes de publicar esta política.
+          <p>
+            Se aplicarán medidas razonables de seguridad para proteger la información contra accesos no autorizados, pérdida, alteración o divulgación indebida, incluyendo controles de acceso a las herramientas utilizadas para gestionar los contactos.
+          </p>
+          <p>
+            Una vez cumplida la finalidad del tratamiento y los plazos aplicables, los datos serán eliminados o anonimizados.
           </p>
         </section>
 
@@ -126,7 +126,7 @@ export default function PoliticaDePrivacidad() {
         <section>
           <h2>8. Cómo ejercer tus derechos</h2>
           <p>
-            Hasta que se confirme un correo específico de privacidad, podés iniciar una solicitud por WhatsApp al <a href={whatsappUrl} target="_blank" rel="noreferrer">+54 9 11 5657-8922</a>. Indicá tu nombre, el derecho que querés ejercer y un medio para responderte. Podremos pedir información adicional para verificar tu identidad.
+            Podés enviar tu solicitud a <a href="mailto:flowautomationstudio@gmail.com">flowautomationstudio@gmail.com</a>. Indicá tu nombre, el derecho que querés ejercer y un medio para responderte. Podremos pedir información adicional para verificar tu identidad.
           </p>
           <p>
             Si no recibís una respuesta adecuada, podés presentar un reclamo ante la Agencia de Acceso a la Información Pública, autoridad de aplicación de la Ley 25.326.
