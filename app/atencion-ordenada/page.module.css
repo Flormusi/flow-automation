@@ -841,6 +841,26 @@
   letter-spacing: 0;
 }
 
+.launch {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 6px 12px;
+  border: 1px solid #2c4f7d;
+  border-radius: 999px;
+  background: #132e58;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.anchor {
+  margin: 16px 0 0;
+  color: #9cafca;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .priceCard ul {
   margin: 26px 0;
   padding: 0;

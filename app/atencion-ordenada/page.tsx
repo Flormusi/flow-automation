@@ -163,7 +163,12 @@ export default function AtencionOrdenadaPage() {
           <p>Sin abonos obligatorios ni sorpresas a mitad de camino.</p>
         </div>
         <div className={styles.priceCard}>
+          <span className={styles.launch}>Precio de lanzamiento · primeros 5 negocios</span>
           <span className={styles.amount}>USD 550<small>pago único</small></span>
+          <p className={styles.anchor}>
+            La implementación completa, con más canales, importación de contactos y campañas, cuesta USD 950. Esta
+            primera etapa resuelve lo más urgente.
+          </p>
           <ul>
             <li><Check size={16} /><span>50 % al empezar y 50 % al entregar.</span></li>
             <li><Check size={16} /><span>Lista en 10 días hábiles desde que tenemos los accesos.</span></li>
