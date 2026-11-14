@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 
-export const alt = "Tus procesos crecieron. Tu forma de trabajar, no."
+export const alt = "Tus consultas llegan. El seguimiento no siempre."
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -44,11 +44,11 @@ export default async function OpenGraphImage() {
 
         <div style={{ width: 1040, display: "flex", flexDirection: "column" }}>
           <span style={{ color: "#60a5fa", fontSize: 22, fontWeight: 700, marginBottom: 22 }}>
-            Automatización de procesos para empresas
+            Flow Sales Recovery
           </span>
           <div style={{ width: "100%", display: "flex", flexDirection: "column", fontSize: 64, lineHeight: 1.02, fontWeight: 700, letterSpacing: -2.5 }}>
-            <div style={{ display: "flex" }}>Tus procesos crecieron.</div>
-            <div style={{ display: "flex" }}>Tu forma de trabajar, no.</div>
+            <div style={{ display: "flex" }}>Tus consultas llegan.</div>
+            <div style={{ display: "flex" }}>El seguimiento no siempre.</div>
           </div>
         </div>
       </div>

@@ -1,37 +1,16 @@
-import { ArrowRight, MessagesSquare } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, Check, MessagesSquare } from "lucide-react"
 import WhatsAppCTA from "@/components/whatsapp-cta"
 import styles from "./home.module.css"
 
 const calendlyUrl = "https://calendly.com/flowautomationstudio/30min"
-
 const whatsappUrl =
-  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Flow%20Automation%20y%20quiero%20contarte%20qu%C3%A9%20est%C3%A1%20pasando%20en%20mi%20empresa."
-
-const services = [
-  {
-    number: "01",
-    title: "Diagnóstico de procesos",
-    description: "Relevo cómo trabajan hoy, mido dónde se pierde tiempo o plata y te entrego un plan priorizado.",
-    fit: "Ideal si sabés que algo no funciona, pero no por dónde empezar.",
-  },
-  {
-    number: "02",
-    title: "Seguimiento comercial ordenado",
-    description: "Todas las consultas en una sola bandeja, conectada a tus canales, con recordatorios de cuándo volver a contactar.",
-    fit: "Ideal si perdés ventas por responder tarde o no hacer seguimiento.",
-  },
-  {
-    number: "03",
-    title: "Tablero de indicadores",
-    description: "Tus números clave en un solo lugar, actualizados automáticamente, sin copiar datos a mano.",
-    fit: "Ideal si te enterás tarde de cómo viene el mes.",
-  },
-]
+  "https://wa.me/5491156578922?text=Hola%20Flor%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Flow%20Automation%20y%20quiero%20contarte%20c%C3%B3mo%20estamos%20haciendo%20el%20seguimiento%20comercial."
 
 const process = [
-  { number: "1", title: "Charla de 20 minutos", text: "Me contás qué está pasando. Sin costo y sin compromiso." },
-  { number: "2", title: "Propuesta clara", text: "Te explico qué resolvería primero, cuánto tarda y cuánto cuesta. Vos decidís." },
-  { number: "3", title: "Funcionando", text: "Lo construyo, lo pruebo con tu equipo y te enseño a usarlo." },
+  { number: "1", title: "Analizamos", text: "Reviso cómo llegan las consultas, quién las atiende y en qué parte se corta el seguimiento." },
+  { number: "2", title: "Implementamos", text: "Configuro un circuito simple para centralizar, ordenar y dar continuidad a cada oportunidad." },
+  { number: "3", title: "Acompañamos", text: "Lo probamos con tu equipo, ajustamos el uso real y dejo documentado cómo trabajar." },
 ]
 
 export default function Home() {
@@ -44,90 +23,91 @@ export default function Home() {
         </a>
         <nav aria-label="Navegación principal">
           <a href="#servicios">Servicios</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#como">Cómo trabajo</a>
+          <a href="#proyectos">Caso real</a>
+          <a href="#como">Cómo funciona</a>
         </nav>
-        <a className="button button-small" href={calendlyUrl} target="_blank" rel="noreferrer">
-          Agendar <ArrowRight size={16} />
-        </a>
+        <WhatsAppCTA className="button button-small" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_header_whatsapp">
+          Hablemos <ArrowRight size={16} />
+        </WhatsAppCTA>
       </header>
 
       <section className={styles.hero} id="inicio">
-        <p className="eyebrow">Automatización de procesos para empresas</p>
-        <h1>Tus procesos crecieron.<br /><span>Tu forma de trabajar, no.</span></h1>
+        <p className="eyebrow">Flow Sales Recovery</p>
+        <h1>Tus consultas llegan.<br /><span>El seguimiento no siempre.</span></h1>
         <p className={styles.heroText}>
-          Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo
-          con automatización a medida.
+          Organizo tus consultas de WhatsApp, Instagram y Facebook, automatizo los seguimientos y te ayudo a retomar
+          oportunidades comerciales que quedaron pendientes.
         </p>
         <div className={styles.actions}>
-          <a className="button" href={calendlyUrl} target="_blank" rel="noreferrer">
-            Agendar una charla de 20 min <ArrowRight size={18} />
-          </a>
-          <WhatsAppCTA className={styles.secondaryButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_hero_whatsapp">
-            Escribirme por WhatsApp
+          <WhatsAppCTA className="button" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_hero_whatsapp">
+            Contame cómo hacen el seguimiento <ArrowRight size={18} />
           </WhatsAppCTA>
+          <a className={styles.secondaryButton} href={calendlyUrl} target="_blank" rel="noreferrer">
+            Agendar una charla de 30 min
+          </a>
         </div>
-        <p className={styles.microcopy}>Sin costo · Sin propuesta genérica</p>
+        <p className={styles.microcopy}>Primero revisamos el proceso · Sin propuesta genérica</p>
       </section>
 
       <section className={styles.pains} aria-labelledby="pains-title">
         <div className={styles.inner}>
-          <h2 id="pains-title">Lo que frena a una empresa casi nunca es la falta de esfuerzo.</h2>
+          <h2 id="pains-title">El problema no suele ser conseguir consultas. Es darles continuidad.</h2>
           <div className={styles.painGrid}>
-            <article><h3>Datos en todos lados</h3><p>Planillas, mails y WhatsApp que nadie cruza. Los números llegan tarde o no llegan.</p></article>
-            <article><h3>Tareas que se repiten</h3><p>Copiar, pegar, controlar y avisar a mano, todos los días.</p></article>
-            <article><h3>Oportunidades que se enfrían</h3><p>Consultas sin seguimiento, cobros demorados y desvíos que se detectan cuando ya costaron.</p></article>
+            <article><h3>Canales separados</h3><p>WhatsApp, Instagram y Facebook se revisan por separado y cuesta tener una sola vista de lo pendiente.</p></article>
+            <article><h3>Próximos pasos poco claros</h3><p>Una consulta recibe respuesta, pero después no siempre queda definido quién la sigue ni cuándo.</p></article>
+            <article><h3>Contactos anteriores sin revisar</h3><p>Hay oportunidades que podrían retomarse si existen datos utilizables y permisos adecuados para volver a contactarlas.</p></article>
           </div>
         </div>
       </section>
 
       <section className={styles.section} id="servicios">
-        <p className="eyebrow">Por dónde empezar</p>
-        <h2>Tres formas concretas de arrancar</h2>
-        <div className={styles.serviceGrid}>
-          {services.map((service) => (
-            <article className={styles.serviceCard} key={service.number}>
-              <span>{service.number}</span>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <strong>{service.fit}</strong>
-            </article>
-          ))}
+        <p className="eyebrow">Servicio principal</p>
+        <h2>Un sistema comercial más ordenado, sin sumar otra herramienta para aprender por tu cuenta.</h2>
+        <div className={styles.offerGrid}>
+          <article className={`${styles.serviceCard} ${styles.primaryService}`}>
+            <span>01 · FLOW SALES RECOVERY</span>
+            <h3>Centralización y seguimiento comercial</h3>
+            <p>Primero entiendo cómo trabaja tu equipo. Después implemento el circuito para reunir consultas, organizar oportunidades, definir responsables y automatizar los seguimientos que tenga sentido automatizar.</p>
+            <ul>
+              <li><Check size={17} /> Consultas de WhatsApp, Instagram y Facebook en un mismo lugar.</li>
+              <li><Check size={17} /> Etapas, responsables y próximos pasos visibles.</li>
+              <li><Check size={17} /> Seguimientos configurados según el proceso real.</li>
+              <li><Check size={17} /> Revisión de contactos anteriores cuando los datos y permisos lo permiten.</li>
+            </ul>
+            <Link className="text-link" href="/flow-sales-recovery">Ver cómo funciona <ArrowRight size={16} /></Link>
+          </article>
+          <article className={styles.serviceCard}>
+            <span>02 · SERVICIO SECUNDARIO</span>
+            <h3>Automatizaciones a medida</h3>
+            <p>Cuando el cuello de botella está en otro proceso, diseño una solución específica: reservas, carga de datos, avisos, reportes o tareas repetitivas.</p>
+            <strong>La herramienta se elige después de entender el problema, no antes.</strong>
+          </article>
         </div>
       </section>
 
       <section className={`${styles.section} ${styles.projectsSection}`} id="proyectos">
-        <h2>Proyectos</h2>
-        <div className={styles.projectGrid}>
-          <article className={styles.projectCard}>
-            <div className={styles.tags}><span>CRM omnicanal</span><span>Seguimiento comercial</span></div>
+        <p className="eyebrow">Caso real · Virtual Golf</p>
+        <h2>Tres canales comerciales, una forma común de trabajar.</h2>
+        <div className={styles.featuredProject}>
+          <div>
+            <div className={styles.tags}><span>WhatsApp</span><span>Instagram</span><span>Facebook Messenger</span></div>
             <h3>Virtual Golf</h3>
-            <p><strong>El problema:</strong> las consultas llegaban por WhatsApp, Instagram y Facebook, y el seguimiento dependía de revisar cada canal por separado.</p>
-            <p><strong>Lo que hice:</strong> centralicé las conversaciones en una sola bandeja, con estados, responsables y un proceso claro para dar seguimiento a cada oportunidad.</p>
-          </article>
-          <article className={styles.projectCard}>
-            <div className={styles.tags}><span>Reservas online</span><span>Agenda conectada</span></div>
-            <h3>Gero Masajes</h3>
-            <p><strong>El problema:</strong> coordinar disponibilidad y reservas requería responder cada consulta y controlar la agenda manualmente.</p>
-            <p><strong>Lo que hice:</strong> construí un sistema de reservas conectado con la agenda, con horarios disponibles, gestión de turnos y confirmaciones.</p>
-          </article>
-          <article className={styles.projectCard}>
-            <div className={styles.tags}><span>Gestión de turnos</span><span>Recordatorios</span></div>
-            <h3>Renova Terapia Manual</h3>
-            <p><strong>El problema:</strong> organizar solicitudes, disponibilidad y confirmaciones consumía tiempo fuera de cada sesión.</p>
-            <p><strong>Lo que hice:</strong> desarrollé una experiencia de reserva con agenda conectada, confirmación de turnos y recordatorios para cada paciente.</p>
-          </article>
-          <article className={styles.projectCard}>
-            <div className={styles.tags}><span>Producto propio</span><span>Full stack</span></div>
-            <h3>TrainFit</h3>
-            <p>Plataforma para entrenadores personales, diseñada y desarrollada de punta a punta: turnos, clientes, rutinas y pagos.</p>
-            <p>Es la prueba de que no solo conecto herramientas: también construyo sistemas completos cuando hace falta.</p>
-          </article>
+            <p><strong>El punto de partida:</strong> las consultas comerciales llegaban por tres canales y necesitaban un circuito compartido para ordenar cada oportunidad.</p>
+            <p><strong>Lo implementado:</strong> conecté los tres canales en una sola bandeja y configuré etiquetas automáticas, etapas comerciales, responsables, campos de seguimiento y respuestas guardadas.</p>
+          </div>
+          <div className={styles.deliveredList}>
+            <span><Check size={18} /> Recepción y respuesta probadas en los tres canales.</span>
+            <span><Check size={18} /> Etapas y datos de seguimiento configurados.</span>
+            <span><Check size={18} /> Respuestas guardadas para consultas habituales.</span>
+            <span><Check size={18} /> Video tutorial, guía de uso y primera revisión.</span>
+          </div>
         </div>
+        <p className={styles.caseNote}>La recuperación de contactos históricos y las campañas salientes quedaron fuera de la implementación inicial y requieren validación de datos y permisos.</p>
       </section>
 
       <section className={styles.section} id="como">
-        <h2>Cómo trabajo</h2>
+        <p className="eyebrow">Cómo funciona</p>
+        <h2>Primero el proceso. Después la implementación.</h2>
         <div className={styles.processGrid}>
           {process.map((item) => (
             <article key={item.number}>
@@ -138,8 +118,8 @@ export default function Home() {
           ))}
         </div>
         <div className={styles.fitGrid}>
-          <article><h3>Es para vos si</h3><p>Tu equipo repite tareas todos los días, perdés clientes por falta de seguimiento o querés ordenar antes de sumar gente.</p></article>
-          <article><h3>Probablemente no si</h3><p>Buscás comprar una herramienta sin revisar cómo trabajás, o todavía no hay un problema claro para resolver.</p></article>
+          <article><h3>Por qué trabajar con Flow</h3><p>No te entrego una herramienta vacía. Relevo el circuito, configuro las etapas y los seguimientos, pruebo los canales y acompaño al equipo para que el sistema se use.</p></article>
+          <article><h3>Cuándo conviene conversar</h3><p>Cuando ya reciben consultas por varios canales y necesitan ordenar responsables, próximos pasos o contactos pendientes antes de sumar más volumen.</p></article>
         </div>
       </section>
 
@@ -151,7 +131,7 @@ export default function Home() {
           <p className="eyebrow">Quién está detrás</p>
           <h2>Hola, soy Flor.</h2>
           <p>Soy desarrolladora full stack y fundadora de Flow Automation Studio. Antes pasé más de 10 años en selección de perfiles técnicos, entendiendo cómo trabajan los equipos por dentro.</p>
-          <p>Esa mezcla es la que traigo a cada proyecto: primero entiendo el proceso y los números, después construyo la solución. Te acompaño desde la primera charla hasta que todo queda funcionando.</p>
+          <p>Esa mezcla es la que traigo a cada proyecto: primero entiendo el proceso y después construyo la solución. Te acompaño desde la primera charla hasta que el circuito queda funcionando y documentado.</p>
           <a className="text-link" href="https://www.linkedin.com/company/flow-automation-studio/" target="_blank" rel="noreferrer">
             Ver Flow Automation Studio en LinkedIn <ArrowRight size={16} />
           </a>
@@ -160,16 +140,16 @@ export default function Home() {
 
       <section className={styles.finalCta}>
         <div>
-          <h2>¿Qué te gustaría que funcionara mejor?</h2>
-          <p>Contame qué tarea le está quitando tiempo a tu equipo. La primera charla dura 20 minutos y no tiene costo.</p>
+          <h2>¿Cómo siguen hoy una consulta después de responderla?</h2>
+          <p>Contame cómo trabajan y revisamos si Flow Sales Recovery encaja con el problema. También podés agendar una charla de 30 minutos.</p>
         </div>
         <div className={styles.actions}>
-          <a className="button button-light" href={calendlyUrl} target="_blank" rel="noreferrer">
-            Agendar una charla <ArrowRight size={18} />
-          </a>
-          <WhatsAppCTA className={styles.lightSecondaryButton} href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_final_whatsapp">
+          <WhatsAppCTA className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer" contentName="home_final_whatsapp">
             Escribirme por WhatsApp <MessagesSquare size={18} />
           </WhatsAppCTA>
+          <a className={styles.lightSecondaryButton} href={calendlyUrl} target="_blank" rel="noreferrer">
+            Agendar 30 min <ArrowRight size={18} />
+          </a>
         </div>
       </section>
 
