@@ -1,7 +1,14 @@
 .page {
   min-height: 100vh;
+  overflow-x: hidden;
   background: #071426;
   color: #eef4ff;
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    overflow-wrap: anywhere;
+  }
 }
 
 .header {

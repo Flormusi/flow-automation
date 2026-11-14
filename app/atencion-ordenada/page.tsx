@@ -28,14 +28,14 @@ const hasDemoVideo = fs.existsSync(path.join(process.cwd(), "public", demoVideo)
 export const metadata: Metadata = {
   title: "Atención ordenada en 10 días",
   description:
-    "Todas las consultas en un solo lugar, respuesta inicial inmediata, reparto en el equipo y aviso cuando algo se demora. Precio fijo, lista en 10 días hábiles.",
+    "Todas las consultas en un solo lugar, respuesta inicial inmediata, reparto en el equipo y aviso cuando algo se demora.",
   alternates: {
     canonical: "/atencion-ordenada",
   },
   openGraph: {
     title: "Atención ordenada en 10 días | Flow Automation Studio",
     description:
-      "Que ningún cliente quede esperando una respuesta. Precio fijo, lista en 10 días hábiles, sin cambiar de número.",
+      "Una implementación para ordenar la atención, repartir consultas y detectar demoras.",
     url: "/atencion-ordenada",
   },
 }
@@ -104,7 +104,7 @@ export default function AtencionOrdenadaPage() {
             >
               Quiero ordenar la atención <ArrowRight size={18} />
             </WhatsAppCTA>
-            <a className={styles.secondary} href="#precio">Ver precio</a>
+            <a className={styles.secondary} href="#alcance">Ver alcance</a>
           </div>
           <p className={styles.microcopy}>Primero una videollamada de 15 minutos, sin compromiso.</p>
         </div>
@@ -156,22 +156,18 @@ export default function AtencionOrdenadaPage() {
         </div>
       </section>
 
-      <section className={styles.priceSection} id="precio">
+      <section className={styles.priceSection} id="alcance">
         <div>
-          <p className={styles.eyebrow}>Precio fijo</p>
-          <h2>Sabés cuánto pagás y cuándo está listo antes de empezar.</h2>
-          <p>Sin abonos obligatorios ni sorpresas a mitad de camino.</p>
+          <p className={styles.eyebrow}>Alcance a confirmar</p>
+          <h2>Primero revisamos los canales y el equipo que necesita usarlo.</h2>
+          <p>El alcance y la propuesta se definen después de entender cómo funciona hoy la atención.</p>
         </div>
         <div className={styles.priceCard}>
-          <span className={styles.launch}>Precio de lanzamiento · primeros 5 negocios</span>
-          <span className={styles.amount}>USD 550<small>pago único</small></span>
-          <p className={styles.anchor}>
-            La implementación completa, con más canales, importación de contactos y campañas, cuesta USD 950. Esta
-            primera etapa resuelve lo más urgente.
-          </p>
+          <span className={styles.launch}>IMPLEMENTACIÓN A MEDIDA DEL PROCESO</span>
+          <p className={styles.anchor}>La cantidad de canales, personas, automatizaciones e información a importar cambia según cada negocio.</p>
           <ul>
-            <li><Check size={16} /><span>50 % al empezar y 50 % al entregar.</span></li>
-            <li><Check size={16} /><span>Lista en 10 días hábiles desde que tenemos los accesos.</span></li>
+            <li><Check size={16} /><span>Revisión inicial del circuito de atención.</span></li>
+            <li><Check size={16} /><span>Propuesta con alcance, tiempos y condiciones antes de empezar.</span></li>
             <li><Check size={16} /><span>La cuenta queda a nombre de tu negocio.</span></li>
           </ul>
           <WhatsAppCTA
@@ -184,8 +180,8 @@ export default function AtencionOrdenadaPage() {
             Coordinar la videollamada <ArrowRight size={18} />
           </WhatsAppCTA>
           <p className={styles.priceNote}>
-            La licencia de la herramienta va a nombre de tu negocio y se paga aparte. La importación de contactos, las
-            campañas y las integraciones con otros sistemas se cotizan por separado. Mantenimiento mensual opcional.
+            Las licencias externas, la importación de contactos, las campañas y las integraciones con otros sistemas
+            se detallan por separado cuando corresponda.
           </p>
         </div>
       </section>

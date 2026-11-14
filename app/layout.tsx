@@ -9,12 +9,12 @@ const productionHosts = ["flowautomation.com.ar", "www.flowautomation.com.ar"]
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowautomation.com.ar"),
   title: {
-    default: "Flow Automation Studio | Automatización de procesos para empresas",
+    default: "Flow Sales Recovery | Flow Automation Studio",
     template: "%s | Flow Automation Studio",
   },
-  description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
+  description: "Organizo consultas de WhatsApp, Instagram y Facebook, automatizo seguimientos y ayudo a retomar oportunidades comerciales pendientes.",
   applicationName: "Flow Automation Studio",
-  keywords: ["automatización de negocios", "sistemas a medida", "mejora de procesos", "Flow Automation Studio"],
+  keywords: ["seguimiento comercial", "CRM para pymes", "automatización de ventas", "Flow Automation Studio"],
   authors: [{ name: "Flow Automation Studio" }],
   creator: "Flow Automation Studio",
   alternates: {
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     siteName: "Flow Automation Studio",
-    title: "Flow Automation Studio | Automatización de procesos para empresas",
-    description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
+    title: "Tus consultas llegan. El seguimiento no siempre.",
+    description: "Flow Sales Recovery organiza consultas, oportunidades y seguimientos comerciales.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flow Automation Studio | Automatización de procesos para empresas",
-    description: "Encuentro dónde tu empresa pierde tiempo o plata entre planillas, WhatsApp y sistemas sueltos, y lo resuelvo con automatización a medida.",
+    title: "Tus consultas llegan. El seguimiento no siempre.",
+    description: "Flow Sales Recovery organiza consultas, oportunidades y seguimientos comerciales.",
   },
 }
 
